@@ -1,0 +1,20 @@
+﻿@model BlogAM.Models.Cliente
+@{
+    ViewBag.Title = "Inscrito";
+}
+
+<h2>Inscrito</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <h1>Inscrever-se para receber noticias</h1>
+        @Html.LabelFor(a => a.Nome)
+        @Html.TextBoxFor(a => a.Nome)<br />
+        @Html.LabelFor(a => a.Email)
+        @Html.TextBoxFor(a => a.Email)<br />
+        @Html.LabelFor(a => a.Cidade)
+        @Html.TextBoxFor(a => a.Cidade)
+
+        <button type="submit">Cadastrar</button>
+    </div>
+}

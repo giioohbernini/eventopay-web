@@ -1,0 +1,29 @@
+﻿@model BlogAM.Models.Cliente
+@{
+    ViewBag.Title = "Cliente";
+}
+
+<h2>Cliente</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <h1>Cadastrar</h1>
+        @Html.LabelFor(a => a.Nome)
+        @Html.TextBoxFor(a => a.Nome)<br />
+        @Html.LabelFor(a => a.Email)
+        @Html.TextBoxFor(a => a.Email)<br />
+        @Html.LabelFor(a => a.Cidade)
+        @Html.TextBoxFor(a => a.Cidade)<br />
+        @Html.LabelFor(a => a.DataNascimento)
+        @Html.EditorFor(a => a.DataNascimento)<br />
+        @Html.LabelFor(a => a.CPF)
+        @Html.TextBoxFor(a => a.CPF)<br />
+        @Html.LabelFor(a => a.ReceberNoticiasEmail)
+        @Html.EditorFor(a => a.ReceberNoticiasEmail)<br />
+        @Html.LabelFor(a => a.numeroCartao)
+        @Html.TextBoxFor(a => a.numeroCartao)<br />
+        <button type="submit">Cadastrar</button>
+    </div>
+}
+<hr />

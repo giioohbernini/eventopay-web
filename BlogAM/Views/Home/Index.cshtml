@@ -1,0 +1,33 @@
+﻿@model List<BlogAM.Models.Noticia>
+@{
+    ViewBag.Title = "Home Page";
+}
+@if (Model.Count() > 0)
+{
+    <div class="jumbotron">
+        <h1>@Model[0].Titulo</h1>
+        <p class="lead">@Model[0].Mensagem</p>
+        <p>@Model[0].Autor - @Model[0].Data</p>
+    </div>
+    <div class="row">
+        @for (int i = 1; i < 4; i++)
+        {
+            if (Model.Count - 1 >= i)
+            {
+                <div class="col-md-4">
+                    <h2>@Model[i].Titulo</h2>
+                    <p>
+                        @Model[i].Mensagem
+                    </p>
+                    <p>@Model[i].Autor - @Model[i].Data</p>
+                </div>
+            }
+        }
+    </div>
+}
+        
+
+
+
+
+    

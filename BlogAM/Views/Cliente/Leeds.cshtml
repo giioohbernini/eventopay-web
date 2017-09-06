@@ -1,0 +1,80 @@
+﻿@model List<BlogAM.Models.Cliente>
+@{
+    ViewBag.Title = "Leeds";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Pesquisar", "Cliente", FormMethod.Get))
+{
+    <div>
+        <h1>Pesquisar</h1>
+        @Html.Label("Nome")
+        @Html.TextBox("Nome")<br />
+        @Html.Label("Email")
+        @Html.TextBox("Email")<br />
+        @Html.Label("Cidade")
+        @Html.TextBox("Cidade")<br />
+        @Html.Label("Receber Noticiacao")
+        @Html.CheckBox("Receber") <br />
+        @Html.RadioButton("ReceberNoticiasEmail", true) Sim 
+        @Html.RadioButton("ReceberNoticiasEmail", false) Não<br/>
+        @Html.Label("CPF")
+        @Html.TextBox("CPF")<br />
+        <button type="submit">Pesquisar</button>
+    </div>
+}
+<hr />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Email</td>
+            <td>Cidade</td>
+            <td>Receber Noticias</td>
+            <td>CPF</td>
+
+        </tr>
+    </thead>
+    <tbody id="tabela">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Nome</td>
+                <td>@item.Email</td>
+                <td>@item.Cidade</td>
+                <td>@item.ReceberNoticiasEmail</td>
+                <td>@item.CPF</td>
+
+                <td>@Html.ActionLink("Editar", "Editar", new { id = @item.ID }, new { @class = "btn btn-primary" })</td>
+                <td><button onclick="tbxId.value = @item.ID" data-toggle="modal" data-target="#myModal">Deletar</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
+            </div>
+            <div class="modal-body">
+                Realmente dezeja deletar o Cliente?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Deletar", "CLiente"))
+                {
+                    <input type="hidden" id="tbxId" name="tbxId" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-primary">Sim</button>
+
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

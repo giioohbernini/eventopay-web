@@ -1,0 +1,84 @@
+﻿@model List<BlogAM.Models.Noticia>
+@{
+    ViewBag.Title = "Index";
+}
+@using (Html.BeginForm())
+{
+    <div>
+        <h1>Cadastrar</h1>
+        @Html.Label("Titulo")
+        @Html.TextBox("tbxTitulo")
+        @Html.Label("Mensagem")
+        @Html.TextArea("tbxMensagem")
+        @Html.Label("Autor")
+        @Html.TextBox("tbxAutor")
+
+
+        <button type="submit">Cadastrar</button>
+    </div>
+}
+@using (Html.BeginForm("Index", "Noticia", FormMethod.Get))
+{
+    <div>
+        <h1>Pesquisar</h1>
+        @Html.Label("Autor")
+        @Html.TextBox("autorPesquisa")
+        <button type="submit">Pesquisar</button>
+    </div>
+}
+<hr />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Titulo</td>
+            <td>Mensagem</td>
+            <td>Autor</td>
+            <td>Data</td>
+        </tr>
+    </thead>
+    <tbody id="tabela">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Titulo</td>
+                <td>@item.Mensagem</td>
+                <td>@item.Autor</td>
+                <td>@item.Data</td>
+
+                <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn btn-primary" })</td>
+                <td><button onclick="tbxId.value = @item.Id" data-toggle="modal" data-target="#myModal">Deletar</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
+            </div>
+            <div class="modal-body">
+                Realmente dezeja deletar a notícia?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Deletar", "Noticia"))
+                {
+                    <input type="hidden" id="tbxId" name="tbxId" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-primary">Sim</button>
+
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

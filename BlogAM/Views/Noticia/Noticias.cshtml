@@ -1,0 +1,20 @@
+﻿@model List<BlogAM.Models.Noticia>
+@{
+    ViewBag.Title = "Noticias";
+}
+
+<h2>Noticias</h2>
+
+<ul style="list-style-type:none">
+
+    @foreach (var item in Model)
+    {
+        <li>
+            <h2>@item.Titulo</h2>
+            <p>
+                @item.Mensagem
+            </p>
+            <p>@item.Autor - @item.Data</p>
+        </li>
+    }
+</ul>
