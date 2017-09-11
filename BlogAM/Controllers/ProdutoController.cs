@@ -12,11 +12,22 @@ namespace BlogAM.Controllers
         #region Listar
         [Authorize]
         [HttpGet]
-        public ActionResult Index(string autorPesquisa = "")
+        public ActionResult Index(string NomePesquisa="")
         {
             List<Produto> produtos = new List<Produto>();
+            if (NomePesquisa=="")
+            {
+
             produtos = DAO.ProdutoDAO.listar();
             return View(produtos);
+            }
+            else
+            {
+                produtos = DAO.ProdutoDAO.pesquisar(NomePesquisa);
+                return View(produtos);
+            }
+            
+            
         }
         #endregion
 
@@ -59,7 +70,16 @@ namespace BlogAM.Controllers
         }
         #endregion
 
+        #region pesquisar
+        [Authorize]
+        [HttpGet]
+        public ActionResult Pesquisar(string NomePesquisa)
+        {
+            //DAO.ProdutoDAO.pesquisar(NomePesquisa);
+            return RedirectToAction("Index","Produto",NomePesquisa);
+        }
+        #endregion
 
 
-    }
+        }
 }
