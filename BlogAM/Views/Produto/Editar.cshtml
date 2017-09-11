@@ -1,0 +1,33 @@
+﻿@model BlogAM.Models.Produto
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Editar", "Produto"))
+    {
+        <h1>Editar</h1>
+        <div class="row">
+            ID @Model.Id
+        </div>
+        <div class="row">
+            @Html.Label("Nome")
+            @Html.TextBox("Nome")
+        </div>
+        <div class="row">
+            @Html.Label("Descrcao")
+            @Html.TextArea("Descrcao")
+        </div>
+        <div class="row">
+            @Html.Label("Imagem")
+            @Html.TextBox("Imagem")
+        </div>
+        <div class="row">
+            @Html.Label("Valor")
+            @Html.TextBox("Valor")
+        </div>
+        <button type="submit">Editar</button>
+    }
+</div>
