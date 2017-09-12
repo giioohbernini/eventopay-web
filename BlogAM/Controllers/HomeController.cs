@@ -1,4 +1,5 @@
 ﻿using BlogAM.Models;
+using BlogAM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,12 @@ namespace BlogAM.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            List<Noticia> noticias = new List<Noticia>();
-            noticias = DAO.NoticiaDAO.listar();
-            return View(noticias);
+            HomeViewModel model = new HomeViewModel()
+            {
+                noticias = DAO.NoticiaDAO.listar(),
+                investimentos = DAO.InvestimentoDAO.listar()
+            };
+            return View(model);
         }
     }
 }

@@ -14,7 +14,8 @@ namespace BlogAM.Context
         // If you wish to target a different database and/or database provider, modify the 'ProdutosContext' 
         // connection string in the application configuration file.
         public ProdutoContext()
-            : base("name=ProdutosContext")
+           // : base("name=ProdutosContext")
+           : base("name=DefaultConnection")
         {
         }
 

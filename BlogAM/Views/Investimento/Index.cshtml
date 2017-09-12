@@ -1,4 +1,4 @@
-﻿@model List<BlogAM.Models.Produto>
+﻿@model List<BlogAM.Models.Investimento>
 @{
     ViewBag.Title = "Index";
 }
@@ -10,15 +10,17 @@
         @Html.TextBox("Nome")
         @Html.Label("Descricao")
         @Html.TextArea("Descricao")
-        @Html.Label("Imagem")
-        @Html.TextBox("Imagem")
         @Html.Label("Valor")
         @Html.TextBox("Valor")
+        @Html.Label("Beneficio")
+        @Html.TextBox("Beneficio")
+        @Html.Label("QtdCotas")
+        @Html.TextBox("QtdCotas")
 
-            <button type="submit">Cadastrar</button>
-        </div>
+        <button type="submit">Cadastrar</button>
+    </div>
 }
-@using (Html.BeginForm("Index", "Produto", FormMethod.Get))
+@using (Html.BeginForm("Index", "Investimento", FormMethod.Get))
 {
     <div>
         <h1>Pesquisar</h1>
@@ -33,9 +35,10 @@
         <tr>
             <td>ID</td>
             <td>Nome</td>
-            <td>Descrcao</td>
-            <td>Imagem</td>
+            <td>Descricao</td>
             <td>Valor</td>
+            <td>Beneficio</td>
+            <td>QtdCotas</td>
         </tr>
     </thead>
     <tbody id="tabela">
@@ -45,9 +48,9 @@
                 <td>@item.Id</td>
                 <td>@item.Nome</td>
                 <td>@item.Descricao</td>
-                <td>@item.Imagem</td>
                 <td>@item.Valor</td>
-
+                <td>@item.Beneficio</td>
+                <td>@item.QtdCotas</td>
                 <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn btn-primary" })</td>
                 <td><button onclick="tbxId.value = @item.Id" data-toggle="modal" data-target="#myModal">Deletar</button></td>
             </tr>
@@ -69,7 +72,7 @@
                 Realmente dezeja deletar a notícia?
             </div>
             <div class="modal-footer">
-                @using (Html.BeginForm("Deletar", "Produto"))
+                @using (Html.BeginForm("Deletar", "Investimento"))
                 {
                     <input type="hidden" id="tbxId" name="tbxId" />
                     <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>

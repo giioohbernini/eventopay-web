@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -16,5 +17,11 @@ namespace BlogAM.Models
         public int CPF { get; set; }
         public bool ReceberNoticiasEmail { get; set; }
         public int numeroCartao { get; set; }
+        public double Valor { get; set; }
+
+        
+        public int? InvestimentoId { get; set; }
+        [ForeignKey("InvestimentoId")]
+        public Investimento investimento { get; set; }
     }
 }

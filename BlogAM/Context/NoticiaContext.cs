@@ -14,7 +14,8 @@ namespace BlogAM.Context
         // If you wish to target a different database and/or database provider, modify the 'NoticiaContext' 
         // connection string in the application configuration file.
         public NoticiaContext()
-            : base("name=NoticiaContext")
+            //: base("name=NoticiaContext")
+            : base("name=DefaultConnection")
         {
         }
 

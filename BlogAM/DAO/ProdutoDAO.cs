@@ -56,7 +56,7 @@ namespace BlogAM.DAO
             using (var ctx = new ProdutoContext())
             {
                 ctx.Produto.Find(id).Nome = produto.Nome;
-                ctx.Produto.Find(id).Descrcao = produto.Descrcao;
+                ctx.Produto.Find(id).Descricao = produto.Descricao;
                 ctx.Produto.Find(id).Imagem = produto.Imagem;
                 ctx.Produto.Find(id).Valor = produto.Valor;
                 ctx.SaveChanges();

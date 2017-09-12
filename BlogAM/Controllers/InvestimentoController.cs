@@ -7,23 +7,24 @@ using System.Web.Mvc;
 
 namespace BlogAM.Controllers
 {
-    public class ProdutoController : Controller
+    
+    public class InvestimentoController : Controller
     {
         #region Listar
         [Authorize]
         [HttpGet]
-        public ActionResult Index(string NomePesquisa="")
+        public ActionResult Index(string NomePesquisa = "")
         {
-            List<Produto> produtos = new List<Produto>();
-            if (NomePesquisa=="")
+            List<Investimento> investimento = new List<Investimento>();
+            if (NomePesquisa == "")
             {
-            produtos = DAO.ProdutoDAO.listar();
-            return View(produtos);
+                investimento = DAO.InvestimentoDAO.listar();
+                return View(investimento);
             }
             else
             {
-                produtos = DAO.ProdutoDAO.pesquisar(NomePesquisa);
-                return View(produtos);
+                investimento = DAO.InvestimentoDAO.pesquisar(NomePesquisa);
+                return View(investimento);
             }
         }
         #endregion
@@ -31,9 +32,9 @@ namespace BlogAM.Controllers
         #region Cadastrar
         [Authorize]
         [HttpPost]
-        public ActionResult Index(Produto produto)
+        public ActionResult Index(Investimento investimento)
         {
-            DAO.ProdutoDAO.cadastrar(produto);
+            DAO.InvestimentoDAO.cadastrar(investimento);
             return RedirectToAction("Index");
         }
         #endregion
@@ -43,7 +44,7 @@ namespace BlogAM.Controllers
         [HttpPost]
         public ActionResult Deletar(int tbxId)
         {
-            DAO.ProdutoDAO.deletar(tbxId);
+            DAO.InvestimentoDAO.deletar(tbxId);
             return RedirectToAction("Index");
         }
         #endregion
@@ -51,10 +52,9 @@ namespace BlogAM.Controllers
         #region Editar Noticia
         [Authorize]
         [HttpPost]
-        public ActionResult Editar(Produto produto)
+        public ActionResult Editar(Investimento investimento)
         {
-
-            DAO.ProdutoDAO.editar(produto.Id,produto);
+            DAO.InvestimentoDAO.editar(investimento.Id, investimento);
             return RedirectToAction("Index");
         }
 
@@ -62,8 +62,8 @@ namespace BlogAM.Controllers
         [HttpGet]
         public ActionResult Editar(int Id)
         {
-            Produto produto = DAO.ProdutoDAO.pesquisar(Id);
-            return View(produto);
+            Investimento investimento = DAO.InvestimentoDAO.pesquisar(Id);
+            return View(investimento);
         }
         #endregion
 
@@ -72,9 +72,8 @@ namespace BlogAM.Controllers
         [HttpGet]
         public ActionResult Pesquisar(string NomePesquisa)
         {
-            return RedirectToAction("Index","Produto",NomePesquisa);
+            return RedirectToAction("Index", "Investimento", NomePesquisa);
         }
         #endregion
-
-        }
+    }
 }
