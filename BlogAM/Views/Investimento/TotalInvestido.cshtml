@@ -1,0 +1,60 @@
+﻿@model BlogAM.ViewModel.ClienteViewModel
+@{
+    ViewBag.Title = "Total Investido";
+}
+
+<h2>Total Investido</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Email</td>
+            <td>CPF</td>
+            <td>Valor investido</td>
+        </tr>
+    </thead>
+    <tbody id="tabela">
+        @foreach (var item in Model.Clientes)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Nome</td>
+                <td>@item.Email</td>
+                <td>@item.CPF</td>
+                <td>@item.Valor</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Quantidade de Cotas</td>
+            <td>Valor Unitario</td>
+            <td>Cotas vendidas</td>
+            <td>Total</td>
+        </tr>
+    </thead>
+    <tbody id="tabela">
+        @foreach (var item in Model.Investimentos)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td>@item.Descricao</td>
+                <td>@item.QtdCotas</td>
+                <td>@item.Valor</td>
+                <td>@(item.QtdCotas-item.CotasRestantes)</td>
+                <td>@(item.Valor*(item.QtdCotas-item.CotasRestantes))</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<H4>Total Geral Investido: @Model.TotalInvestido</H4>

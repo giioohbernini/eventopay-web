@@ -34,7 +34,7 @@ namespace BlogAM.DAO
         }
         #endregion
 
-        #region Listar
+        #region Listar Todos
         public static List<Investimento> listar()
         {
             try
@@ -42,6 +42,23 @@ namespace BlogAM.DAO
                 using (var ctx = new InvestimentoContext())
                 {
                     return ctx.Investimento.ToList();
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            };
+        }
+        #endregion
+
+        #region Listar com Cotas
+        public static List<Investimento> listarComCotas()
+        {
+            try
+            {
+                using (var ctx = new InvestimentoContext())
+                {
+                    return ctx.Investimento.Where(a=>a.CotasRestantes>0).ToList();
                 }
             }
             catch (Exception)
@@ -61,7 +78,7 @@ namespace BlogAM.DAO
                 ctx.Investimento.Find(id).Valor= investimento.Valor;
                 ctx.Investimento.Find(id).Beneficio = investimento.Beneficio;
                 ctx.Investimento.Find(id).QtdCotas = investimento.QtdCotas;
-                ctx.Investimento.Find(id).CotasRestantes = investimento.QtdCotas;
+                ctx.Investimento.Find(id).CotasRestantes = investimento.CotasRestantes;
                 ctx.SaveChanges();
             }
         }
@@ -86,5 +103,7 @@ namespace BlogAM.DAO
             }
         }
         #endregion
+
+
     }
 }

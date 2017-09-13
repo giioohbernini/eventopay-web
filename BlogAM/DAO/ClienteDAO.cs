@@ -9,7 +9,7 @@ namespace BlogAM.DAO
 {
     public class ClienteDAO
     {
-        #region Cadastrar
+        #region Cadastrar Inscrito
         public static void cadastrar(Cliente cliente)
         {
             using (var ctx = new ClienteContext())
@@ -17,6 +17,25 @@ namespace BlogAM.DAO
                 ctx.Cliente.Add(cliente);
                 ctx.SaveChanges();
             }
+        }
+        #endregion
+        #region Cadastrar Cliente
+        public static void cadastrar(Cliente cliente,int qtdCota)
+        {
+            Investimento investimento = DAO.InvestimentoDAO.pesquisar(Int32.Parse(cliente.InvestimentoId.ToString()));
+            if (qtdCota<=0)
+            {
+                qtdCota = 1;
+            }
+            cliente.Valor = investimento.Valor*qtdCota;
+            cliente.Beneficio = investimento.Beneficio * qtdCota;
+            using (var ctx = new ClienteContext())
+            {
+                ctx.Cliente.Add(cliente);
+                ctx.SaveChanges();
+            }
+            investimento.CotasRestantes -= qtdCota;
+            InvestimentoDAO.editar(investimento.Id,investimento);
         }
         #endregion
 
@@ -121,5 +140,17 @@ namespace BlogAM.DAO
             }
         }
         #endregion
+        
+        #region Pesquisar pelo ID
+        public static double GetTotalInvestido()
+        {
+            using (var ctx = new ClienteContext())
+            {
+                return ctx.Cliente.Sum(a => a.Valor);
+            }
+        }
+#endregion
+
+
     }
 }

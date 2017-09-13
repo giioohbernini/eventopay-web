@@ -1,4 +1,5 @@
 ﻿using BlogAM.Models;
+using BlogAM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,5 +76,22 @@ namespace BlogAM.Controllers
             return RedirectToAction("Index", "Investimento", NomePesquisa);
         }
         #endregion
+
+        #region pesquisar
+        [Authorize]
+        [HttpGet]
+        public ActionResult TotalInvestido()
+        {
+
+            ClienteViewModel clienteView = new ClienteViewModel()
+            {
+                Investimentos = DAO.InvestimentoDAO.listar(),
+                Clientes = DAO.ClienteDAO.listar(),
+                TotalInvestido=DAO.ClienteDAO.GetTotalInvestido()
+            };
+            return View(clienteView);
+        }
+        #endregion
+
     }
 }

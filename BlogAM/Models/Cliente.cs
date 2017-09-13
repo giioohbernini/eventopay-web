@@ -18,8 +18,8 @@ namespace BlogAM.Models
         public bool ReceberNoticiasEmail { get; set; }
         public int numeroCartao { get; set; }
         public double Valor { get; set; }
+        public double Beneficio { get; set; }
 
-        
         public int? InvestimentoId { get; set; }
         [ForeignKey("InvestimentoId")]
         public Investimento investimento { get; set; }

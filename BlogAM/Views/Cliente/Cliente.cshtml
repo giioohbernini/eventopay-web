@@ -1,4 +1,4 @@
-﻿@model BlogAM.Models.Cliente
+﻿@model BlogAM.ViewModel.ClienteViewModel
 @{
     ViewBag.Title = "Cliente";
 }
@@ -9,21 +9,23 @@
 {
     <div>
         <h1>Cadastrar</h1>
-        @Html.LabelFor(a => a.Nome)
-        @Html.TextBoxFor(a => a.Nome)<br />
-        @Html.LabelFor(a => a.Email)
-        @Html.TextBoxFor(a => a.Email)<br />
-        @Html.LabelFor(a => a.Cidade)
-        @Html.TextBoxFor(a => a.Cidade)<br />
-        @Html.LabelFor(a => a.DataNascimento)
-        @Html.EditorFor(a => a.DataNascimento)<br />
-        @Html.LabelFor(a => a.CPF)
-        @Html.TextBoxFor(a => a.CPF)<br />
-        @Html.LabelFor(a => a.ReceberNoticiasEmail)
-        @Html.EditorFor(a => a.ReceberNoticiasEmail)<br />
-        @Html.LabelFor(a => a.numeroCartao)
-        @Html.TextBoxFor(a => a.numeroCartao)<br />
-        
+        @Html.LabelFor(a => a.Cliente.Nome)
+        @Html.TextBoxFor(a => a.Cliente.Nome)<br />
+        @Html.LabelFor(a => a.Cliente.Email)
+        @Html.TextBoxFor(a => a.Cliente.Email)<br />
+        @Html.LabelFor(a => a.Cliente.Cidade)
+        @Html.TextBoxFor(a => a.Cliente.Cidade)<br />
+        @Html.LabelFor(a => a.Cliente.DataNascimento)
+        @Html.EditorFor(a => a.Cliente.DataNascimento)<br />
+        @Html.LabelFor(a => a.Cliente.CPF)
+        @Html.TextBoxFor(a => a.Cliente.CPF)<br />
+        @Html.LabelFor(a => a.Cliente.ReceberNoticiasEmail)
+        @Html.EditorFor(a => a.Cliente.ReceberNoticiasEmail)<br />
+        @Html.LabelFor(a => a.Cliente.numeroCartao)
+        @Html.TextBoxFor(a => a.Cliente.numeroCartao)<br />
+        @Html.DropDownListFor(x => x.SelectedItemId, new SelectList(Model.Investimentos, "Id", "Nome",Model.selecao))<br />
+        @Html.LabelFor(a => a.Quantidade)
+        @Html.EditorFor(a => a.Quantidade)<br />
         <button type="submit">Cadastrar</button>
     </div>
 }

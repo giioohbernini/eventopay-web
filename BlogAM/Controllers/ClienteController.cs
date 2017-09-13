@@ -1,4 +1,5 @@
 ﻿using BlogAM.Models;
+using BlogAM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,12 @@ namespace BlogAM.Controllers
         [HttpGet]
         public ActionResult Cliente()
         {
-            return View();
+            ClienteViewModel clienteView = new ClienteViewModel()
+            {
+                Investimentos = DAO.InvestimentoDAO.listarComCotas(),
+                selecao = 3
+            };
+            return View(clienteView);
         }
         #endregion
 
@@ -57,14 +63,21 @@ namespace BlogAM.Controllers
         }
         #endregion
 
+        
         #region Cadastra Cliente
         [HttpPost]
-        public ActionResult Cliente(Cliente cliente)
+        public ActionResult Cliente(ClienteViewModel clienteView)
         {
-            cliente.DataCadastro = DateTime.Now;
-            cliente.DataNascimento = DateTime.Now;
-            DAO.ClienteDAO.cadastrar(cliente);
-            return RedirectToAction("Index","Home");
+            clienteView.InvestimentoAtual = DAO.InvestimentoDAO.pesquisar(clienteView.SelectedItemId);
+            if (clienteView.Quantidade > 0 && clienteView.Quantidade<=clienteView.InvestimentoAtual.CotasRestantes)
+            {
+                clienteView.Cliente.DataCadastro = DateTime.Now;
+                clienteView.Cliente.DataNascimento = DateTime.Now;
+                clienteView.Cliente.InvestimentoId = clienteView.SelectedItemId;
+                DAO.ClienteDAO.cadastrar(clienteView.Cliente, clienteView.Quantidade);
+            }
+            return RedirectToAction("Index", "Home");
+            
         }
         #endregion
 

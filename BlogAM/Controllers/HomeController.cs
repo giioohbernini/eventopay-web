@@ -16,7 +16,7 @@ namespace BlogAM.Controllers
             HomeViewModel model = new HomeViewModel()
             {
                 noticias = DAO.NoticiaDAO.listar(),
-                investimentos = DAO.InvestimentoDAO.listar()
+                investimentos = DAO.InvestimentoDAO.listarComCotas()
             };
             return View(model);
         }

@@ -43,10 +43,11 @@
                         @if (item.CotasRestantes > 0)
                         {
                             <p>cotas restantes: @item.CotasRestantes</p>
-                            <button>Adquerir cotas</button>
+                            
                         }
                     </li>
                 }
+            @Html.ActionLink("Adquerir Cotas", "Cliente", "Cliente")
         </ul>
     </div>
 }

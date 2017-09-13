@@ -21,13 +21,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Todas Noticias", "Noticias", "Noticia")</li>
+                    <li>@Html.ActionLink("Todas Not ", "Noticias", "Noticia")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Escrever Noticia", "Index", "Noticia")</li>
                         <li>@Html.ActionLink("Leeds", "Leeds", "Cliente")</li>
-                        <li>@Html.ActionLink("Produtos", "Index", "Produto")</li>
+                        <li>@Html.ActionLink("Manter Produtos", "Index", "Produto")</li>
+                        <li>@Html.ActionLink("Manter Invest", "Index", "Investimento")</li>
+                        <li>@Html.ActionLink("Invest feitos", "TotalInvestido", "Investimento")</li>
                     }
                     else
                     {
