@@ -84,5 +84,16 @@ namespace BlogAM.DAO
             }
         }
         #endregion
+
+
+        #region Pesquisar por tudo
+        public static List<Noticia> pesquisarTudo(string pesquisa)
+        {
+            using (var ctx = new NoticiaContext())
+            {
+                return ctx.Noticia.Where(t => t.Autor.Contains(pesquisa)||t.Titulo.Contains(pesquisa)||t.Mensagem.Contains(pesquisa)).ToList();
+            }
+        }
+        #endregion
     }
 }

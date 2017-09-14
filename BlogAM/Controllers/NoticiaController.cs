@@ -12,10 +12,10 @@ namespace BlogAM.Controllers
         #region Cadastrar e pesquisar noticias
         [Authorize]
         [HttpGet]
-        public ActionResult Index(string autorPesquisa = "")
+        public ActionResult Index(string Pesquisa = "")
         {
             List<Noticia> noticias = new List<Noticia>();
-            if (autorPesquisa == "")
+            if (Pesquisa == "")
             {
 
                 noticias = DAO.NoticiaDAO.listar();
@@ -24,9 +24,9 @@ namespace BlogAM.Controllers
             else
             {
 
-                if (DAO.NoticiaDAO.pesquisar(autorPesquisa) != null)
+                if (DAO.NoticiaDAO.pesquisarTudo(Pesquisa) != null)
                 {
-                    foreach (var item in DAO.NoticiaDAO.pesquisar(autorPesquisa))
+                    foreach (var item in DAO.NoticiaDAO.pesquisarTudo(Pesquisa))
                     {
                         noticias.Add(item);
                     }
@@ -88,12 +88,28 @@ namespace BlogAM.Controllers
         #region Noticias
         [AllowAnonymous]
         [HttpGet]
-        public ActionResult Noticias()
+        public ActionResult Noticias(string pesquisa="")
         {
             List<Noticia> noticias = new List<Noticia>();
-            noticias = DAO.NoticiaDAO.listar();
-            return View(noticias);
+            if (pesquisa == "")
+            {
+                noticias = DAO.NoticiaDAO.listar();
+                return View(noticias);
+            }
+            else
+            {
+                noticias = DAO.NoticiaDAO.pesquisarTudo(pesquisa);
+                return View(noticias);
+            }
         }
         #endregion
+
+
+
+        [HttpGet]
+        public ActionResult Pesquisar(string pesquisa)
+        {
+            return RedirectToAction("Noticias","Noticia", pesquisa);
+        }
     }
 }

@@ -4,7 +4,15 @@
 }
 
 <h2>Noticias</h2>
-
+@using (Html.BeginForm("Noticias", "Noticia", FormMethod.Get))
+{
+    <div>
+        <h1>Pesquisar</h1>
+        @Html.Label("Pesquisar")
+        @Html.TextBox("Pesquisa")
+        <button type="submit">Pesquisar</button>
+    </div>
+}
 <ul style="list-style-type:none">
 
     @foreach (var item in Model)
