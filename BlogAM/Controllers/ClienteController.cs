@@ -11,6 +11,7 @@ namespace BlogAM.Controllers
     public class ClienteController : Controller
     {
         #region Exibe Clietes
+        [Authorize]
         [HttpGet]
         public ActionResult Leeds()
         {
