@@ -19,6 +19,18 @@ namespace BlogAM
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/loader").Include(
+                "~/Scripts/loader.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/eventpay-scripts").Include(
+                "~/Scripts/menu.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/Content/eventpay-styles").Include(
+                "~/Content/style.css"
+                ));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));

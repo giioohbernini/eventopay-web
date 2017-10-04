@@ -1,0 +1,127 @@
+﻿.loader {
+    display: flex;
+    opacity: 0;
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+    .loader .content {
+        width: 340px;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loader.on {
+        opacity: 1;
+    }
+
+#logo-fiap {
+    stroke-width: 2px;
+    stroke-dasharray: 1043;
+    animation: 3s write;
+}
+
+@-moz-keyframes write {
+    0% {
+        stroke: #3a3a3a;
+        stroke-dashoffset: 1043;
+        fill-opacity: 0;
+    }
+
+    70% {
+        stroke: #3a3a3a;
+        fill-opacity: 0;
+        stroke-dashoffset: 0;
+    }
+
+    90% {
+        stroke: #3a3a3a;
+        fill-opacity: 0;
+    }
+
+    100% {
+        stroke: none;
+        fill-opacity: 1;
+    }
+}
+
+@-webkit-keyframes write {
+    0% {
+        stroke: #3a3a3a;
+        stroke-dashoffset: 1043;
+        fill-opacity: 0;
+    }
+
+    70% {
+        stroke: #3a3a3a;
+        fill-opacity: 0;
+        stroke-dashoffset: 0;
+    }
+
+    90% {
+        stroke: #3a3a3a;
+        fill-opacity: 0;
+    }
+
+    100% {
+        stroke: none;
+        fill-opacity: 1;
+    }
+}
+
+@-o-keyframes write {
+    0% {
+        stroke: #3a3a3a;
+        stroke-dashoffset: 1043;
+        fill-opacity: 0;
+    }
+
+    70% {
+        stroke: #3a3a3a;
+        fill-opacity: 0;
+        stroke-dashoffset: 0;
+    }
+
+    90% {
+        stroke: #3a3a3a;
+        fill-opacity: 0;
+    }
+
+    100% {
+        stroke: none;
+        fill-opacity: 1;
+    }
+}
+
+@keyframes write {
+    0% {
+        stroke: #3a3a3a;
+        stroke-dashoffset: 1043;
+        fill-opacity: 0;
+    }
+
+    70% {
+        stroke: #3a3a3a;
+        fill-opacity: 0;
+        stroke-dashoffset: 0;
+    }
+
+    90% {
+        stroke: #3a3a3a;
+        fill-opacity: 0;
+    }
+
+    100% {
+        stroke: none;
+        fill-opacity: 1;
+    }
+}
