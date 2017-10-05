@@ -3,29 +3,32 @@
     ViewBag.Title = "Editar";
 }
 
-<h2>Editar</h2>
+<section class="header">
+  <div class="content">
+    <h1 class="title">Editando notícia #@Model.Id</h1>
+  </div>
+</section>
 
-
-<div class="container">
-    @using (Html.BeginForm("Editar", "Noticia"))
-    {
-        <h1>Editar</h1>
-        <div class="row">
-            ID @Model.Id
-        </div>
-        <div class="row">
+<section>
+  <div class="container">
+    <div class="form -body">
+      @using (Html.BeginForm("Editar", "Noticia"))
+      {
+          <div class="item">
             @Html.Label("Titulo")
             @Html.TextBox("Titulo")
-        </div>
-        <div class="row">
+          </div>
+          <div class="item">
             @Html.Label("Mensagem")
             @Html.TextArea("Mensagem")
-        </div>
-        <div class="row">
+          </div>
+          <div class="item">
             @Html.Label("Autor")
             @Html.TextBox("Autor")
-        </div>
-        <button type="submit">Editar</button>
+          </div>
+          <button class="btn -green" type="submit">Editar</button>
 
-    }
-</div>
+      }
+    </div>
+  </div>
+</section>

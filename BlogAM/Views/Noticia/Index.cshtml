@@ -2,80 +2,103 @@
 @{
     ViewBag.Title = "Index";
 }
-@using (Html.BeginForm())
-{
-    <div>
-        <h1>Cadastrar</h1>
-        @Html.Label("Titulo")
-        @Html.TextBox("tbxTitulo")
-        @Html.Label("Mensagem")
-        @Html.TextArea("tbxMensagem")
-        @Html.Label("Autor")
-        @Html.TextBox("tbxAutor")
 
+<section class="header">
+  <div class="content">
+    <h1 class="title">Cadastrar Notícias</h1>
+    <div class="containter">
+      @using (Html.BeginForm("Index", "Noticia", FormMethod.Get))
+      {
+          <div class="form -center">
+            @Html.TextBox("Pesquisa", "", new { placeholder = "Procure pela notícia desejada!" })
+            <button class="btn -green" type="submit">Pesquisar</button>
+          </div>
+      }
+    </div>
+  </div>
+</section>
 
-        <button type="submit">Cadastrar</button>
+<section>
+  <div class="container">
+    <div class="form -body">
+      @using (Html.BeginForm())
+      {
+        <div class="item">
+          @Html.Label("Titulo")
+          @Html.TextBox("tbxTitulo", "", new { placeholder = "Insira seu título aqui" })
+        </div>
+        <div class="item">
+          @Html.Label("Mensagem")
+          @Html.TextArea("tbxMensagem")
+        </div>
+        <div class="item">
+          @Html.Label("Autor")
+          @Html.TextBox("tbxAutor", "", new { placeholder = "Insira o nome do autor aqui" })
+        </div>
+
+        <button class="btn -green" type="submit">Cadastrar</button>
+      }
     </div>
-}
-@using (Html.BeginForm("Index", "Noticia", FormMethod.Get))
-{
-    <div>
-        <h1>Pesquisar</h1>
-        @Html.TextBox("Pesquisa")
-        <button type="submit">Pesquisar</button>
-    </div>
-}
+  </div>
+</section>
+
 <hr />
-<table class="table table-striped">
-    <thead>
-        <tr>
+<section>
+  <div class="container">
+    <div class="table-content">
+      <table class="table table-striped">
+        <thead>
+          <tr>
             <td>ID</td>
             <td>Titulo</td>
             <td>Mensagem</td>
             <td>Autor</td>
             <td>Data</td>
-        </tr>
-    </thead>
-    <tbody id="tabela">
-        @foreach (var item in Model)
-        {
-            <tr>
+          </tr>
+        </thead>
+        <tbody id="tabela">
+          @foreach (var item in Model)
+          {
+              <tr>
                 <td>@item.Id</td>
                 <td>@item.Titulo</td>
                 <td>@item.Mensagem</td>
                 <td>@item.Autor</td>
                 <td>@item.Data</td>
 
-                <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn btn-primary" })</td>
+                <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn -edit" })</td>
                 <td><button onclick="tbxId.value = @item.Id" data-toggle="modal" data-target="#myModal">Deletar</button></td>
-            </tr>
-        }
-    </tbody>
-</table>
+              </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
-            </div>
-            <div class="modal-body">
-                Realmente dezeja deletar a notícia?
-            </div>
-            <div class="modal-footer">
-                @using (Html.BeginForm("Deletar", "Noticia"))
-                {
-                    <input type="hidden" id="tbxId" name="tbxId" />
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                    <button type="submit" class="btn btn-primary">Sim</button>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
+      </div>
+      <div class="modal-body">
+        Realmente dezeja deletar a notícia?
+      </div>
+      <div class="modal-footer">
+        @using (Html.BeginForm("Deletar", "Noticia"))
+        {
+            <input type="hidden" id="tbxId" name="tbxId" />
+            <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+            <button type="submit" class="btn btn-primary">Sim</button>
+        }
 
-                }
-
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 
