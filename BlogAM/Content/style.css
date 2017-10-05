@@ -219,6 +219,48 @@ img {
   }
 }
 
+.table-content {
+  margin: 2em 0;
+  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #ddd;
+}
+
+  .table-content > .table {
+    color: #333;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    border-color: #ddd;
+    margin: 1em 10px;
+    background-color: transparent;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+    .table-content > .table .btn {
+      text-decoration: none;
+      cursor: pointer;
+      padding: 5px 12px;
+      font-size: 12px;
+    }
+
+      .table-content > .table .btn.-remove {
+        background-color: #f00;
+      }
+
+      .table-content > .table .btn.-edit {
+        background-color: #00c0ff;
+        color: #fff;
+      }
+
+    .table-content > .table td {
+      padding: 8px;
+      line-height: 1.428571429;
+      vertical-align: top;
+    }
+
+    .table-content > .table tbody td {
+      border-top: 1px solid #ddd;
+    }
+
 .preview {
   width: 660px;
   height: 320px;
@@ -368,6 +410,17 @@ img {
     list-style-type: none;
   }
 
+    .nav-content .leftmenu #logoutForm,
+    .nav-content .rightmenu #logoutForm {
+      display: flex;
+    }
+
+    .nav-content .leftmenu li,
+    .nav-content .rightmenu li {
+      font-size: 14px;
+      padding: 0 7px;
+    }
+
     .nav-content .leftmenu .navButton,
     .nav-content .rightmenu .navButton {
       cursor: pointer;
@@ -384,11 +437,6 @@ img {
   .nav-content .rightmenu .menuitem {
     display: none;
   }
-}
-
-.nav-content .leftmenu > li,
-.nav-content .rightmenu > li {
-  padding: 0 10px;
 }
 
 .header {
