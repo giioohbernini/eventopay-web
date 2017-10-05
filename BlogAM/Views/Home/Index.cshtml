@@ -3,7 +3,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<section class="header">
+<section class="header -home">
   <div class="content">
     <h1 class="title">Fácil como deveria ser.</h1>
     <div class="buttons">
@@ -41,43 +41,43 @@
 </section>
 
 @if (Model.investimentos.Count() > 0) {
-<section>
-  <div class="hero -fourth">
-    <div class="container">
-      <div class="box-content">
-        @foreach (var item in Model.investimentos)
-        {
-          <div class="box">
-            <div class="headerbox">
-              <div class="left">
-                <p>@item.Nome</p>
+  <section>
+    <div class="hero -fourth">
+      <div class="container">
+        <div class="box-content">
+          @foreach (var item in Model.investimentos)
+          {
+            <div class="box">
+              <div class="headerbox">
+                <div class="left">
+                  <p>@item.Nome</p>
+                </div>
+                <div class="right">
+                  <p>R$:@item.Valor</p>
+                </div>
               </div>
-              <div class="right">
-                <p>R$:@item.Valor</p>
+              <div class="content">
+                <p>@item.Descricao</p>
               </div>
+              <a href="@Url.Action("Cliente", "Cliente")">
+                <div class="footer">
+                  <p class="top">Adqurir Pacote</p>
+                  @if (item.CotasRestantes > 0)
+                  {
+                      <p class="bottom">(Restam apenas: @item.CotasRestantes)</p>
+                  }
+                  else
+                  {
+                      <p class="bottom">(Pacote esgotado!)</p>
+                  }
+                </div>
+              </a>
             </div>
-            <div class="content">
-              <p>@item.Descricao</p>
-            </div>
-            <a href="@Url.Action("Cliente", "Cliente")">
-              <div class="footer">
-                <p class="top">Adqurir Pacote</p>
-                @if (item.CotasRestantes > 0)
-                {
-                    <p class="bottom">(Restam apenas: @item.CotasRestantes)</p>
-                }
-                else
-                {
-                    <p class="bottom">(Pacote esgotado!)</p>
-                }
-              </div>
-            </a>
-          </div>
-        }
+          }
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 }
 
 <section>
@@ -93,28 +93,28 @@
 
 @if (Model.noticias.Count() > 0)
 {
-<section>
-  <div class="container">
-    <div class="half-box">
-      @for (int i = 0; i < 4; i++)
-      {
-        if (Model.noticias.Count - 1 >= i)
+  <section>
+    <div class="container">
+      <div class="half-box">
+        @for (int i = 0; i < 4; i++)
         {
-          <div class="box">
-            <div class="titulo">
-              <h1>@Model.noticias[i].Titulo</h1>
-              <span>@Model.noticias[i].Data</span>
+          if (Model.noticias.Count - 1 >= i)
+          {
+            <div class="box">
+              <div class="titulo">
+                <h1>@Model.noticias[i].Titulo</h1>
+                <span>@Model.noticias[i].Data</span>
+              </div>
+              <div class="content">
+                <p>@Model.noticias[i].Mensagem</p>
+              </div>
+              <div class="footer"><span>Autor: @Model.noticias[i].Autor</span></div>
             </div>
-            <div class="content">
-              <p>@Model.noticias[i].Mensagem</p>
-            </div>
-            <div class="footer"><span>Autor: @Model.noticias[i].Autor</span></div>
-          </div>
+          }
         }
-      }
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 }
 
 
