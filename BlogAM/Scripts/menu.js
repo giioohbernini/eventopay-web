@@ -3,7 +3,7 @@ let sidenav = document.querySelector(".side-nav");
 let overlay = document.querySelector(".overlay");
 let navButton = document.querySelector(".navButton");
 let pageSetOf = pageYOffset;
-let navbar = document.querySelector(".nav-bar");
+let navbar = document.querySelector(".navbar");
 
 function openNav() {
     sidenav.style.transform = "translateX(250px)";
