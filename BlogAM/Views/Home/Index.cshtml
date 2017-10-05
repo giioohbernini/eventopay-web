@@ -3,55 +3,119 @@
     ViewBag.Title = "Home Page";
 }
 
+<section class="header">
+  <div class="content">
+    <h1 class="title">Fácil como deveria ser.</h1>
+    <div class="buttons">
+      <button class="btn -green">Faça parte desse projeto</button>
+      <button class="btn -white">Descobrir mais</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="hero -first">
+    <div class="container">
+      <div class="content -right">
+        <h2 class="title -medium">O que fazemos?</h2>
+        <p class="subtitle">Trazemos uma inovação disruptiva na maneira em que você organiza seus eventos</p>
+        <div class="pre">
+          <div class="preview"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="hero -second">
+    <div class="container -fullheight">
+      <div class="center-box">
+        <div class="hero-body">
+          <h2 class="title -small">Quer investir na nossa ideia?</h2>
+          <p class="subtitle">Selecione um pacote que lhe agrade!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+@if (Model.investimentos.Count() > 0) {
+<section>
+  <div class="hero -fourth">
+    <div class="container">
+      <div class="box-content">
+        @foreach (var item in Model.investimentos)
+        {
+          <div class="box">
+            <div class="headerbox">
+              <div class="left">
+                <p>@item.Nome</p>
+              </div>
+              <div class="right">
+                <p>R$:@item.Valor</p>
+              </div>
+            </div>
+            <div class="content">
+              <p>@item.Descricao</p>
+            </div>
+            <a href="@Url.Action("Cliente", "Cliente")">
+              <div class="footer">
+                <p class="top">Adqurir Pacote</p>
+                @if (item.CotasRestantes > 0)
+                {
+                    <p class="bottom">(Restam apenas: @item.CotasRestantes)</p>
+                }
+                else
+                {
+                    <p class="bottom">(Pacote esgotado!)</p>
+                }
+              </div>
+            </a>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+}
+
+<section>
+  <div class="hero -third">
+    <div class="center-box">
+      <div class="hero-body">
+        <h2 class="title -small">O que anda rolando?</h2>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
 @if (Model.noticias.Count() > 0)
 {
-    <h3>Fique de olho nas noticias</h3>
-    <div class="jumbotron">
-        <h1>@Model.noticias[0].Titulo</h1>
-        <p class="lead">@Model.noticias[0].Mensagem</p>
-        <p>@Model.noticias[0].Autor - @Model.noticias[0].Data</p>
-    </div>
-    <div class="row">
-        @for (int i = 1; i < 4; i++)
+<section>
+  <div class="container">
+    <div class="half-box">
+      @for (int i = 0; i < 4; i++)
+      {
+        if (Model.noticias.Count - 1 >= i)
         {
-            if (Model.noticias.Count - 1 >= i)
-            {
-                <div class="col-md-4">
-                    <h2>@Model.noticias[i].Titulo</h2>
-                    <p>
-                        @Model.noticias[i].Mensagem
-                    </p>
-                    <p>@Model.noticias[i].Autor - @Model.noticias[i].Data</p>
-                </div>
-            }
+          <div class="box">
+            <div class="titulo">
+              <h1>@Model.noticias[i].Titulo</h1>
+              <span>@Model.noticias[i].Data</span>
+            </div>
+            <div class="content">
+              <p>@Model.noticias[i].Mensagem</p>
+            </div>
+            <div class="footer"><span>Autor: @Model.noticias[i].Autor</span></div>
+          </div>
         }
+      }
     </div>
+  </div>
+</section>
 }
-@if (Model.investimentos.Count() > 0)
-{
-    <h3>Quer investir na nossa ideia?</h3>
-    <div>
-        <ul style="list-style-type:none">
-                @foreach (var item in Model.investimentos)
-                {
-                    <li>
-                        <h2>@item.Nome</h2>
-                        <p>
-                            @item.Descricao
-                        </p>
-                        <p>@item.Valor - @item.Beneficio</p>
-                        @if (item.CotasRestantes > 0)
-                        {
-                            <p>cotas restantes: @item.CotasRestantes</p>
-                            
-                        }
-                    </li>
-                }
-            @Html.ActionLink("Adquerir Cotas", "Cliente", "Cliente")
-        </ul>
-    </div>
-}
-        
 
 
 
