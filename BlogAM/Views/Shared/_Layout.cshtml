@@ -10,7 +10,7 @@
   }
 
   @Styles.Render("~/Content/styles")
-  @Scripts.Render("~/bundles/scripts")
+ 
 
 </head>
 <body>
@@ -49,6 +49,7 @@
   <div class="overlay"></div>
   @RenderBody()
 
+  @Scripts.Render("~/bundles/scripts")
   @RenderSection("scripts", required: false)
 </body>
 </html>
