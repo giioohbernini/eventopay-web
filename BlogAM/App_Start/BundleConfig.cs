@@ -16,7 +16,7 @@ namespace BlogAM
                 "~/Scripts/menu.js"
                 ));
 
-            bundles.Add(new ScriptBundle("~/Content/styles").Include(
+            bundles.Add(new StyleBundle("~/Content/styles").Include(
                 "~/Content/style.css"
                 ));
         }
