@@ -6,35 +6,43 @@
   <title>@ViewBag.Title - My ASP.NET Application</title>
   @if (Request.Path == "/")
   {
-      @Scripts.Render("~/bundles/loader")
+      <style>.loader,.loader .content{display:flex;height:100vh}.loader{align-items:center;background-color:#fff;opacity:0;justify-content:center;margin:0;overflow:hidden;position:absolute;width:100%;z-index:-1}.loader .content{align-items:center;justify-content:center;width:340px}.loader.on{opacity:1;z-index:2}#logo-fiap{animation:3s write;stroke-dasharray:1043;stroke-width:2px}@@-moz-keyframes write{0%{fill-opacity:0;stroke:#3a3a3a;stroke-dashoffset:1043}70%{fill-opacity:0;stroke:#3a3a3a;stroke-dashoffset:0}90%{fill-opacity:0;stroke:#3a3a3a}100%{fill-opacity:1;stroke:none}}@@-webkit-keyframes write{0%{fill-opacity:0;stroke:#3a3a3a;stroke-dashoffset:1043}70%{fill-opacity:0;stroke:#3a3a3a;stroke-dashoffset:0}90%{fill-opacity:0;stroke:#3a3a3a}100%{fill-opacity:1;stroke:none}}@@-o-keyframes write{0%{fill-opacity:0;stroke:#3a3a3a;stroke-dashoffset:1043}70%{fill-opacity:0;stroke:#3a3a3a;stroke-dashoffset:0}90%{fill-opacity:0;stroke:#3a3a3a}100%{fill-opacity:1;stroke:none}}@@keyframes write{0%{fill-opacity:0;stroke:#3a3a3a;stroke-dashoffset:1043}70%{fill-opacity:0;stroke:#3a3a3a;stroke-dashoffset:0}90%{fill-opacity:0;stroke:#3a3a3a}100%{fill-opacity:1;stroke:none}}</style>
+      <script>
+        window.addEventListener('load', () => {
+          const loader = document.querySelector('.loader')
+
+          setTimeout(() => {
+            loader.classList = "loader"
+            document.body.style.overflowY = ""
+          }, 3500)
+        })
+      </script>
   }
 
-  @Styles.Render("~/Content/styles")
- 
-
 </head>
-<body>
+<body style="@if (Request.Path == "/") {@Html.Raw("overflow-y: hidden") } ">
   @if (Request.Path == "/") { @Html.Partial("_Loader") }
+  @Styles.Render("~/Content/styles")
 
   <nav class="navbar">
       <div class="nav-content">
         <div class="rightmenu">
-          <img src="https://user-images.githubusercontent.com/13969702/31136935-fa6b3124-a83f-11e7-8711-dad1ed1d2203.png" alt="eventpayment logo">
+          <img onclick="window.location.href = '/'" src="https://user-images.githubusercontent.com/13969702/31136935-fa6b3124-a83f-11e7-8711-dad1ed1d2203.png" alt="eventpayment logo">
         </div>
         <ul class="leftmenu">
           <li class="menuitem">@Html.ActionLink("Notícias", "Noticias", "Noticia")</li>
           @if (Request.IsAuthenticated)
           {
-              <li class="menuitem">@Html.ActionLink("Escrever Noticia", "Index", "Noticia")</li>
+              <li class="menuitem">@Html.ActionLink("Nova Notícia", "Index", "Noticia")</li>
               <li class="menuitem">@Html.ActionLink("Leeds", "Leeds", "Cliente")</li>
-              <li class="menuitem">@Html.ActionLink("Manter Produtos", "Index", "Produto")</li>
-              <li class="menuitem">@Html.ActionLink("Manter Invest", "Index", "Investimento")</li>
-              <li class="menuitem">@Html.ActionLink("Invest feitos", "TotalInvestido", "Investimento")</li>
+              <li class="menuitem">@Html.ActionLink("Produtos", "Index", "Produto")</li>
+              <li class="menuitem">@Html.ActionLink("Investimentos", "Index", "Investimento")</li>
+              <li class="menuitem">@Html.ActionLink("Dashboard", "TotalInvestido", "Investimento")</li>
           }
           else
           {
               <li class="menuitem">@Html.ActionLink("Cadastrar", "Cliente", "Cliente")</li>
-              <li class="menuitem">@Html.ActionLink("Inscrever-se", "Inscrito", "Cliente")</li>
+              <li class="menuitem">@Html.ActionLink("Newsletter", "Inscrito", "Cliente")</li>
           }
           @Html.Partial("_LoginPartial")
           <li class="mobile navButton" onclick="openNav()">☰</li>

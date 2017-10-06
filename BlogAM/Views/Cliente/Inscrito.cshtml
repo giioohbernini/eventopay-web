@@ -3,18 +3,32 @@
     ViewBag.Title = "Inscrito";
 }
 
-<h2>Inscrito</h2>
-@using (Html.BeginForm())
-{
-    <div>
-        <h1>Inscrever-se para receber noticias</h1>
-        @Html.LabelFor(a => a.Nome)
-        @Html.TextBoxFor(a => a.Nome)<br />
-        @Html.LabelFor(a => a.Email)
-        @Html.TextBoxFor(a => a.Email)<br />
-        @Html.LabelFor(a => a.Cidade)
-        @Html.TextBoxFor(a => a.Cidade)
+<section class="header">
+  <div class="content">
+    <h1 class="title">Newsletter</h1>
+  </div>
+</section>
 
-        <button type="submit">Cadastrar</button>
+<section>
+  <div class="container">
+    <div class="form -body">
+      @using (Html.BeginForm())
+      {
+          <div class="item">
+            @Html.LabelFor(a => a.Nome)
+            @Html.TextBoxFor(a => a.Nome)
+          </div>
+          <div class="item">
+            @Html.LabelFor(a => a.Email)
+            @Html.TextBoxFor(a => a.Email)
+          </div>
+          <div class="item">
+            @Html.LabelFor(a => a.Cidade)
+            @Html.TextBoxFor(a => a.Cidade)
+          </div>
+
+          <button class="btn -green" type="submit">Inscrever</button>
+      }
     </div>
-}
+  </div>
+</section>

@@ -3,41 +3,44 @@
     ViewBag.Title = "Editar";
 }
 
-<h2>Editar</h2>
+<section class="header">
+  <div class="content">
+    <h1 class="title">Editando cliente #@Model.ID</h1>
+  </div>
+</section>
 
-
-<div class="container">
-    @using (Html.BeginForm("Editar", "Cliente"))
-    {
-        <h1>Editar</h1>
-        <div class="row">
-            ID @Model.ID
-        </div>
-        <div class="row">
+<section>
+  <div class="container">
+    <div class="form -body">
+      @using (Html.BeginForm("Editar", "Cliente"))
+      {
+          <div class="item">
             @Html.LabelFor(a => a.Nome)
             @Html.TextBoxFor(a => a.Nome)
-        </div>
-        <div class="row">
+          </div>
+          <div class="item">
             @Html.LabelFor(a => a.Email)
             @Html.TextBoxFor(a => a.Email)
-        </div>
-        <div class="row">
+          </div>
+          <div class="item">
             @Html.LabelFor(a => a.Cidade)
             @Html.TextBoxFor(a => a.Cidade)
-        </div>
-        <div class="row">
+          </div>
+          <div class="item">
             @Html.LabelFor(a => a.CPF)
             @Html.TextBoxFor(a => a.CPF)
-        </div>
-        <div class="row">
+          </div>
+          <div class="item">
             @Html.LabelFor(a => a.numeroCartao)
             @Html.TextBoxFor(a => a.numeroCartao)
-        </div>
-        <div class="row">
+          </div>
+          <div class="item">
             @Html.LabelFor(a => a.ReceberNoticiasEmail)
             @Html.CheckBoxFor(a => a.ReceberNoticiasEmail)
-        </div>
-         <button type="submit">Editar</button>
+          </div>
+          <button class="btn -green" type="submit">Editar</button>
 
-    }
-</div>
+      }
+    </div>
+  </div>
+</section>

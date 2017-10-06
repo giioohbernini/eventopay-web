@@ -1,18 +1,21 @@
 ﻿@using Microsoft.AspNet.Identity
-<li class="menuitem">|</li>
+
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
+    <li class="menuitem">@Html.ActionLink("Criar Usuário", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li class="menuitem">|</li>
+
+  using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+  {
         @Html.AntiForgeryToken()
         <li class="menuitem">
-            @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+          @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li class="menuitem"><a href="javascript:document.getElementById('logoutForm').submit()">Sair</a></li>
-    }
+  }
 }
 else
 {
-    <li class="menuitem">@Html.ActionLink("Registrar", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li class="menuitem">|</li>
     <li class="menuitem">@Html.ActionLink("Entrar", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
 }

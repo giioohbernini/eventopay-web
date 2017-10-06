@@ -4,5 +4,6 @@
 
     setTimeout(() => {
         loader.classList = "loader"
+        document.body.style.overflowY = ""
     }, 3500)
 })
