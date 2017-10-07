@@ -2,10 +2,10 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <section class="header">
   <div class="content">
     <h1 class="title">Cadastrar Notícias</h1>
+
     <div class="containter">
       @using (Html.BeginForm("Index", "Noticia", FormMethod.Get))
       {
@@ -18,85 +18,85 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="form -body">
-      @using (Html.BeginForm())
-      {
-        <div class="item">
-          @Html.Label("Titulo")
-          @Html.TextBox("tbxTitulo", "", new { placeholder = "Insira seu título aqui" })
-        </div>
-        <div class="item">
-          @Html.Label("Mensagem")
-          @Html.TextArea("tbxMensagem")
-        </div>
-        <div class="item">
-          @Html.Label("Autor")
-          @Html.TextBox("tbxAutor", "", new { placeholder = "Insira o nome do autor aqui" })
-        </div>
-
-        <button class="btn -green" type="submit">Cadastrar</button>
-      }
-    </div>
-  </div>
-</section>
-
-<hr />
-<section>
-  <div class="container">
-    <div class="table-content">
-      <table class="table">
-        <thead>
-          <tr>
-            <td>ID</td>
-            <td>Titulo</td>
-            <td>Mensagem</td>
-            <td>Autor</td>
-            <td>Data</td>
-          </tr>
-        </thead>
-        <tbody id="tabela">
-          @foreach (var item in Model)
-          {
-              <tr>
-                <td>@item.Id</td>
-                <td>@item.Titulo</td>
-                <td>@item.Mensagem</td>
-                <td>@item.Autor</td>
-                <td>@item.Data</td>
-
-                <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn -edit" })</td>
-                <td><button onclick="tbxId.value = @item.Id" data-toggle="modal" data-target="#myModal">Deletar</button></td>
-              </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
-      </div>
-      <div class="modal-body">
-        Realmente dezeja deletar a notícia?
-      </div>
-      <div class="modal-footer">
-        @using (Html.BeginForm("Deletar", "Noticia"))
+<section class="main">
+  <section>
+    <div class="container">
+      <div class="form -body">
+        @using (Html.BeginForm())
         {
-            <input type="hidden" id="tbxId" name="tbxId" />
-            <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-            <button type="submit" class="btn btn-primary">Sim</button>
-        }
+            <div class="item">
+              @Html.Label("Titulo")
+              @Html.TextBox("tbxTitulo", "", new { placeholder = "Insira seu título aqui" })
+            </div>
+            <div class="item">
+              @Html.Label("Mensagem")
+              @Html.TextArea("tbxMensagem")
+            </div>
+            <div class="item">
+              @Html.Label("Autor")
+              @Html.TextBox("tbxAutor", "", new { placeholder = "Insira o nome do autor aqui" })
+            </div>
 
+            <button class="btn -green" type="submit">Cadastrar</button>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="table-content">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>Titulo</td>
+              <td>Mensagem</td>
+              <td>Autor</td>
+              <td>Data</td>
+            </tr>
+          </thead>
+          <tbody id="tabela">
+            @foreach (var item in Model)
+            {
+                <tr>
+                  <td>@item.Id</td>
+                  <td>@item.Titulo</td>
+                  <td>@item.Mensagem</td>
+                  <td>@item.Autor</td>
+                  <td>@item.Data</td>
+
+                  <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn -edit" })</td>
+                  <td><button onclick="tbxId.value = @item.Id" data-toggle="modal" data-target="#myModal">Deletar</button></td>
+                </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          Realmente dezeja deletar a notícia?
+        </div>
+        <div class="modal-footer">
+          @using (Html.BeginForm("Deletar", "Noticia"))
+          {
+              <input type="hidden" id="tbxId" name="tbxId" />
+              <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+              <button type="submit" class="btn btn-primary">Sim</button>
+          }
+
+        </div>
       </div>
     </div>
   </div>
-</div>

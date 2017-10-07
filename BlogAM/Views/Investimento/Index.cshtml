@@ -18,98 +18,99 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="form -body">
-      @using (Html.BeginForm())
-      {
-          <div class="item">
-            @Html.Label("Nome")
-            @Html.TextBox("Nome", "", new { placeholder = "Nome do pacote" })
-          </div>
-          <div class="item">
-            @Html.Label("Descricao")
-            @Html.TextArea("Descricao", "", new { placeholder = "Descrição do pacote, fale tudo que ele oferecerá" })
-          </div>
-          <div class="item">
-            @Html.Label("Valor")
-            @Html.TextBox("Valor", "", new { placeholder = "Valor unitário do pacote" })
-          </div>
-          <div class="item">
-            @Html.Label("Beneficio")
-            @Html.TextBox("Beneficio", "", new { placeholder = "Quantidade de créditos que o usuário ganhará" })
-          </div>
-          <div class="item">
-            @Html.Label("QtdCotas")
-            @Html.TextBox("QtdCotas", "", new { placeholder = "Quantidade máxima de cotas permitidas" })
-          </div>
-          <button class="btn -green" type="submit">Cadastrar</button>
-      }
-    </div>
-  </div>
-</section>
+<section class="main">
 
-<section>
-  <div class="container">
-    <div class="table-content">
-      <table class="table">
-        <thead>
-          <tr>
-            <td>ID</td>
-            <td>Nome</td>
-            <td>Descricao</td>
-            <td>Valor</td>
-            <td>Beneficio</td>
-            <td>QtdCotas</td>
-          </tr>
-        </thead>
-        <tbody id="tabela">
-          @foreach (var item in Model)
-          {
-              <tr>
-                <td>@item.Id</td>
-                <td>@item.Nome</td>
-                <td>@item.Descricao</td>
-                <td>@item.Valor</td>
-                <td>@item.Beneficio</td>
-                <td>@item.QtdCotas</td>
-                <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn -edit" })</td>
-                <td><button onclick="tbxId.value = @item.Id" data-toggle="modal" data-target="#myModal">Deletar</button></td>
-              </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
-      </div>
-      <div class="modal-body">
-        Realmente dezeja deletar a notícia?
-      </div>
-      <div class="modal-footer">
-        @using (Html.BeginForm("Deletar", "Investimento"))
+  <section>
+    <div class="container">
+      <div class="form -body">
+        @using (Html.BeginForm())
         {
-            <input type="hidden" id="tbxId" name="tbxId" />
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+            <div class="item">
+              @Html.Label("Nome")
+              @Html.TextBox("Nome", "", new { placeholder = "Nome do pacote" })
+            </div>
+            <div class="item">
+              @Html.Label("Descricao")
+              @Html.TextArea("Descricao", "", new { placeholder = "Descrição do pacote, fale tudo que ele oferecerá" })
+            </div>
+            <div class="item">
+              @Html.Label("Valor")
+              @Html.TextBox("Valor", "", new { placeholder = "Valor unitário do pacote" })
+            </div>
+            <div class="item">
+              @Html.Label("Beneficio")
+              @Html.TextBox("Beneficio", "", new { placeholder = "Quantidade de créditos que o usuário ganhará" })
+            </div>
+            <div class="item">
+              @Html.Label("QtdCotas")
+              @Html.TextBox("QtdCotas", "", new { placeholder = "Quantidade máxima de cotas permitidas" })
+            </div>
+            <button class="btn -green" type="submit">Cadastrar</button>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="table-content">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>Nome</td>
+              <td>Descricao</td>
+              <td>Valor</td>
+              <td>Beneficio</td>
+              <td>QtdCotas</td>
+            </tr>
+          </thead>
+          <tbody id="tabela">
+            @foreach (var item in Model)
+            {
+                <tr>
+                  <td>@item.Id</td>
+                  <td>@item.Nome</td>
+                  <td>@item.Descricao</td>
+                  <td>@item.Valor</td>
+                  <td>@item.Beneficio</td>
+                  <td>@item.QtdCotas</td>
+                  <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn -edit" })</td>
+                  <td><button onclick="tbxId.value = @item.Id" data-toggle="modal" data-target="#myModal">Deletar</button></td>
+                </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          Realmente dezeja deletar a notícia?
+        </div>
+        <div class="modal-footer">
+          @using (Html.BeginForm("Deletar", "Investimento"))
+          {
+              <input type="hidden" id="tbxId" name="tbxId" />
+              <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
                   <button type="submit" class="btn btn-primary">Sim</button>
 
-        }
+          }
 
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-
-
+</section>

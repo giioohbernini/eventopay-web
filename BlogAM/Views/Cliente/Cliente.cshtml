@@ -9,51 +9,55 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="form -body">
-      @using (Html.BeginForm())
-      {
-          <div class="item">
-            @Html.LabelFor(a => a.Cliente.Nome)
-            @Html.TextBoxFor(a => a.Cliente.Nome)
-          </div>
-          <div class="item">
-            @Html.LabelFor(a => a.Cliente.Email)
-            @Html.TextBoxFor(a => a.Cliente.Email)
-          </div>
-          <div class="item">
-            @Html.LabelFor(a => a.Cliente.Cidade)
-            @Html.TextBoxFor(a => a.Cliente.Cidade)
-          </div>
-          <div class="item">
-            @Html.LabelFor(a => a.Cliente.DataNascimento)
-            @Html.EditorFor(a => a.Cliente.DataNascimento)
-          </div>
-          <div class="item">
-            @Html.LabelFor(a => a.Cliente.CPF)
-            @Html.TextBoxFor(a => a.Cliente.CPF)
-          </div>
-          <div class="item">
-            @Html.LabelFor(a => a.Cliente.ReceberNoticiasEmail)
-            @Html.EditorFor(a => a.Cliente.ReceberNoticiasEmail)
-          </div>
-          <div class="item">
-            @Html.LabelFor(a => a.Cliente.numeroCartao)
-            @Html.TextBoxFor(a => a.Cliente.numeroCartao)
-          </div>
-          <div class="item">
-            @Html.DropDownListFor(x => x.SelectedItemId, new SelectList(Model.Investimentos, "Id", "Nome", Model.selecao))
-          </div>
-          <div class="item">
-            @Html.LabelFor(a => a.Quantidade)
-            @Html.EditorFor(a => a.Quantidade)
-          </div>
 
-          <button CLASS="btn -green" type="submit">Cadastrar</button>
+<section class="main">
 
-      }
+  <section>
+    <div class="container">
+      <div class="form -body">
+        @using (Html.BeginForm())
+        {
+            <div class="item">
+              @Html.LabelFor(a => a.Cliente.Nome)
+              @Html.TextBoxFor(a => a.Cliente.Nome)
+            </div>
+            <div class="item">
+              @Html.LabelFor(a => a.Cliente.Email)
+              @Html.TextBoxFor(a => a.Cliente.Email)
+            </div>
+            <div class="item">
+              @Html.LabelFor(a => a.Cliente.Cidade)
+              @Html.TextBoxFor(a => a.Cliente.Cidade)
+            </div>
+            <div class="item">
+              @Html.LabelFor(a => a.Cliente.DataNascimento)
+              @Html.EditorFor(a => a.Cliente.DataNascimento)
+            </div>
+            <div class="item">
+              @Html.LabelFor(a => a.Cliente.CPF)
+              @Html.TextBoxFor(a => a.Cliente.CPF)
+            </div>
+            <div class="item">
+              @Html.LabelFor(a => a.Cliente.ReceberNoticiasEmail)
+              @Html.EditorFor(a => a.Cliente.ReceberNoticiasEmail)
+            </div>
+            <div class="item">
+              @Html.LabelFor(a => a.Cliente.numeroCartao)
+              @Html.TextBoxFor(a => a.Cliente.numeroCartao)
+            </div>
+            <div class="item">
+              @Html.DropDownListFor(x => x.SelectedItemId, new SelectList(Model.Investimentos, "Id", "Nome", Model.selecao))
+            </div>
+            <div class="item">
+              @Html.LabelFor(a => a.Quantidade)
+              @Html.EditorFor(a => a.Quantidade)
+            </div>
+
+            <button CLASS="btn -green" type="submit">Cadastrar</button>
+
+        }
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+</section>

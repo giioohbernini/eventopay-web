@@ -13,111 +13,111 @@
   </div>
 </section>
 
-<section>
-  <div class="hero -first">
-    <div class="container">
-      <div class="content -right">
-        <h2 class="title -medium">O que fazemos?</h2>
-        <p class="subtitle">Trazemos uma inovação disruptiva na maneira em que você organiza seus eventos</p>
-        <div class="pre">
-          <div class="preview"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="main -home">
 
-<section>
-  <div class="hero -second">
-    <div class="container -fullheight">
-      <div class="center-box">
-        <div class="hero-body">
-          <h2 class="title -small">Quer investir na nossa ideia?</h2>
-          <p class="subtitle">Selecione um pacote que lhe agrade!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-@if (Model.investimentos.Count() > 0) {
   <section>
-    <div class="hero -fourth">
+    <div class="hero -first">
       <div class="container">
-        <div class="box-content">
-          @foreach (var item in Model.investimentos)
+        <div class="content -right">
+          <h2 class="title -medium">O que fazemos?</h2>
+          <p class="subtitle">Trazemos uma inovação disruptiva na maneira em que você organiza seus eventos</p>
+          <div class="pre">
+            <div class="preview"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="hero -second">
+      <div class="container -fullheight">
+        <div class="center-box">
+          <div class="hero-body">
+            <h2 class="title -small">Quer investir na nossa ideia?</h2>
+            <p class="subtitle">Selecione um pacote que lhe agrade!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  @if (Model.investimentos.Count() > 0)
+  {
+      <section>
+        <div class="hero -fourth">
+          <div class="container">
+            <div class="box-content">
+              @foreach (var item in Model.investimentos)
           {
-            <div class="box">
-              <div class="headerbox">
-                <div class="left">
-                  <p>@item.Nome</p>
-                </div>
-                <div class="right">
-                  <p>R$:@item.Valor</p>
-                </div>
+          <div class="box">
+            <div class="headerbox">
+              <div class="left">
+                <p>@item.Nome</p>
               </div>
-              <div class="content">
-                <p>@item.Descricao</p>
+              <div class="right">
+                <p>R$:@item.Valor</p>
               </div>
-              <a href="@Url.Action("Cliente", "Cliente")">
-                <div class="footer">
-                  <p class="top">Adqurir Pacote</p>
-                  @if (item.CotasRestantes > 0)
+            </div>
+            <div class="content">
+              <p>@item.Descricao</p>
+            </div>
+            <a href="@Url.Action("Cliente", "Cliente")">
+              <div class="footer">
+                <p class="top">Adqurir Pacote</p>
+                @if (item.CotasRestantes > 0)
                   {
-                      <p class="bottom">(Restam apenas: @item.CotasRestantes)</p>
+                  <p class="bottom">(Restam apenas: @item.CotasRestantes)</p>
                   }
                   else
                   {
-                      <p class="bottom">(Pacote esgotado!)</p>
+                  <p class="bottom">(Pacote esgotado!)</p>
                   }
-                </div>
-              </a>
-            </div>
+              </div>
+            </a>
+          </div>
           }
+            </div>
+          </div>
+        </div>
+      </section>
+  }
+
+  <section>
+    <div class="hero -third">
+      <div class="center-box">
+        <div class="hero-body">
+          <h2 class="title -small">O que anda rolando?</h2>
         </div>
       </div>
     </div>
-  </section>
-}
-
-<section>
-  <div class="hero -third">
-    <div class="center-box">
-      <div class="hero-body">
-        <h2 class="title -small">O que anda rolando?</h2>
-      </div>
     </div>
-  </div>
-  </div>
+  </section>
+
+  @if (Model.noticias.Count() > 0)
+  {
+      <section>
+        <div class="container">
+          <div class="half-box">
+            @for (int i = 0; i < 4; i++)
+            {
+              if (Model.noticias.Count - 1 >= i)
+              {
+                    <div class="box">
+                      <div class="titulo">
+                        <h1>@Model.noticias[i].Titulo</h1>
+                        <span>@Model.noticias[i].Data</span>
+                      </div>
+                      <div class="content">
+                        <p>@Model.noticias[i].Mensagem</p>
+                      </div>
+                      <div class="footer"><span>Autor: @Model.noticias[i].Autor</span></div>
+                    </div>
+              }
+            }
+          </div>
+        </div>
+      </section>
+  }
+
 </section>
-
-@if (Model.noticias.Count() > 0)
-{
-  <section>
-    <div class="container">
-      <div class="half-box">
-        @for (int i = 0; i < 4; i++)
-        {
-          if (Model.noticias.Count - 1 >= i)
-          {
-            <div class="box">
-              <div class="titulo">
-                <h1>@Model.noticias[i].Titulo</h1>
-                <span>@Model.noticias[i].Data</span>
-              </div>
-              <div class="content">
-                <p>@Model.noticias[i].Mensagem</p>
-              </div>
-              <div class="footer"><span>Autor: @Model.noticias[i].Autor</span></div>
-            </div>
-          }
-        }
-      </div>
-    </div>
-  </section>
-}
-
-
-
-
-    

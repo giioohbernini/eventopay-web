@@ -9,37 +9,39 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="form -body">
-      @using (Html.BeginForm("Editar", "Investimento"))
-      {
-          <div class="item">
-            ID @Model.Id
-          </div>
-          <div class="item">
-            @Html.Label("Nome")
-            @Html.TextBox("Nome")
-          </div>
-          <div class="item">
-            @Html.Label("Descricao")
-            @Html.TextArea("Descricao")
-          </div>
-          <div class="item">
-            @Html.Label("Valor")
-            @Html.TextBox("Valor")
-          </div>
-          <div class="item">
-            @Html.Label("Beneficio")
-            @Html.TextBox("Beneficio")
-          </div>
-          <div class="item">
-            @Html.Label("QtdCotas")
-            @Html.TextBox("QtdCotas")
-          </div>
-          <button class="btn -green" type="submit">Editar</button>
+<section class="main">
+  <section>
+    <div class="container">
+      <div class="form -body">
+        @using (Html.BeginForm("Editar", "Investimento"))
+        {
+            <div class="item">
+              ID @Model.Id
+            </div>
+            <div class="item">
+              @Html.Label("Nome")
+              @Html.TextBox("Nome")
+            </div>
+            <div class="item">
+              @Html.Label("Descricao")
+              @Html.TextArea("Descricao")
+            </div>
+            <div class="item">
+              @Html.Label("Valor")
+              @Html.TextBox("Valor")
+            </div>
+            <div class="item">
+              @Html.Label("Beneficio")
+              @Html.TextBox("Beneficio")
+            </div>
+            <div class="item">
+              @Html.Label("QtdCotas")
+              @Html.TextBox("QtdCotas")
+            </div>
+            <button class="btn -green" type="submit">Editar</button>
 
-      }
+        }
+      </div>
     </div>
-  </div>
+  </section>
 </section>

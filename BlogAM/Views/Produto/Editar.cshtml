@@ -9,32 +9,35 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="form -body">
-      @using (Html.BeginForm("Editar", "Produto"))
-      {
-          <div class="item">
-            ID @Model.Id
-          </div>
-          <div class="item">
-            @Html.Label("Nome")
-            @Html.TextBox("Nome")
-          </div>
-          <div class="item">
-            @Html.Label("Descricao")
-            @Html.TextArea("Descricao")
-          </div>
-          <div class="item">
-            @Html.Label("Imagem")
-            @Html.TextBox("Imagem")
-          </div>
-          <div class="item">
-            @Html.Label("Valor")
-            @Html.TextBox("Valor")
-          </div>
-          <button class="btn -green" type="submit">Editar</button>
-      }
+
+<section class="main">
+  <section>
+    <div class="container">
+      <div class="form -body">
+        @using (Html.BeginForm("Editar", "Produto"))
+        {
+            <div class="item">
+              ID @Model.Id
+            </div>
+            <div class="item">
+              @Html.Label("Nome")
+              @Html.TextBox("Nome")
+            </div>
+            <div class="item">
+              @Html.Label("Descricao")
+              @Html.TextArea("Descricao")
+            </div>
+            <div class="item">
+              @Html.Label("Imagem")
+              @Html.TextBox("Imagem")
+            </div>
+            <div class="item">
+              @Html.Label("Valor")
+              @Html.TextBox("Valor")
+            </div>
+            <button class="btn -green" type="submit">Editar</button>
+        }
+      </div>
     </div>
-  </div>
+  </section>
 </section>

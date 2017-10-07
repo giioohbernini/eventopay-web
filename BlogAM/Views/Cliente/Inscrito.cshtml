@@ -9,26 +9,29 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="form -body">
-      @using (Html.BeginForm())
-      {
-          <div class="item">
-            @Html.LabelFor(a => a.Nome)
-            @Html.TextBoxFor(a => a.Nome)
-          </div>
-          <div class="item">
-            @Html.LabelFor(a => a.Email)
-            @Html.TextBoxFor(a => a.Email)
-          </div>
-          <div class="item">
-            @Html.LabelFor(a => a.Cidade)
-            @Html.TextBoxFor(a => a.Cidade)
-          </div>
+<section class="main">
 
-          <button class="btn -green" type="submit">Inscrever</button>
-      }
+  <section>
+    <div class="container">
+      <div class="form -body">
+        @using (Html.BeginForm())
+        {
+            <div class="item">
+              @Html.LabelFor(a => a.Nome)
+              @Html.TextBoxFor(a => a.Nome)
+            </div>
+            <div class="item">
+              @Html.LabelFor(a => a.Email)
+              @Html.TextBoxFor(a => a.Email)
+            </div>
+            <div class="item">
+              @Html.LabelFor(a => a.Cidade)
+              @Html.TextBoxFor(a => a.Cidade)
+            </div>
+
+            <button class="btn -green" type="submit">Inscrever</button>
+        }
+      </div>
     </div>
-  </div>
+  </section>
 </section>

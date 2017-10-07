@@ -9,70 +9,74 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <h2 style="margin-top: 2em">Leeds</h2>
-    <div class="table-content">
-      <table class="table">
-        <thead>
-          <tr>
-            <td>ID</td>
-            <td>Nome</td>
-            <td>Email</td>
-            <td>CPF</td>
-            <td>Valor investido</td>
-          </tr>
-        </thead>
-        <tbody id="tabela">
-          @foreach (var item in Model.Clientes)
-          {
-              <tr>
-                <td>@item.ID</td>
-                <td>@item.Nome</td>
-                <td>@item.Email</td>
-                <td>@item.CPF</td>
-                <td>@item.Valor</td>
-              </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+<section class="main">
 
-<section>
-  <div class="container">
-    <h2>Pacotes de Investidor</h2>
-    <div class="table-content">
-      <table class="table">
-        <thead>
-          <tr>
-            <td>ID</td>
-            <td>Nome</td>
-            <td>Descrição</td>
-            <td>Quantidade de Cotas</td>
-            <td>Valor Unitario</td>
-            <td>Cotas vendidas</td>
-            <td>Total</td>
-          </tr>
-        </thead>
-        <tbody id="tabela">
-          @foreach (var item in Model.Investimentos)
-          {
-              <tr>
-                <td>@item.Id</td>
-                <td>@item.Nome</td>
-                <td>@item.Descricao</td>
-                <td>@item.QtdCotas</td>
-                <td>@item.Valor</td>
-                <td>@(item.QtdCotas - item.CotasRestantes)</td>
-                <td>@(item.Valor * (item.QtdCotas - item.CotasRestantes))</td>
-              </tr>
-          }
-        </tbody>
-      </table>
+  <section>
+    <div class="container">
+      <h2 style="padding-top: 2em">Leeds</h2>
+      <div class="table-content">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>Nome</td>
+              <td>Email</td>
+              <td>CPF</td>
+              <td>Valor investido</td>
+            </tr>
+          </thead>
+          <tbody id="tabela">
+            @foreach (var item in Model.Clientes)
+            {
+                <tr>
+                  <td>@item.ID</td>
+                  <td>@item.Nome</td>
+                  <td>@item.Email</td>
+                  <td>@item.CPF</td>
+                  <td>@item.Valor</td>
+                </tr>
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<H4>Total Geral Investido: @Model.TotalInvestido</H4>
+  <section>
+    <div class="container">
+      <h2>Pacotes de Investidor</h2>
+      <div class="table-content">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>Nome</td>
+              <td>Descrição</td>
+              <td>Quantidade de Cotas</td>
+              <td>Valor Unitario</td>
+              <td>Cotas vendidas</td>
+              <td>Total</td>
+            </tr>
+          </thead>
+          <tbody id="tabela">
+            @foreach (var item in Model.Investimentos)
+            {
+                <tr>
+                  <td>@item.Id</td>
+                  <td>@item.Nome</td>
+                  <td>@item.Descricao</td>
+                  <td>@item.QtdCotas</td>
+                  <td>@item.Valor</td>
+                  <td>@(item.QtdCotas - item.CotasRestantes)</td>
+                  <td>@(item.Valor * (item.QtdCotas - item.CotasRestantes))</td>
+                </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <H4>Total Geral Investido: @Model.TotalInvestido</H4>
+    </div>
+  </section>
+
+</section>

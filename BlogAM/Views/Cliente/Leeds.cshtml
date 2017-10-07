@@ -9,25 +9,27 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="form -body">
+<section class="main">
 
-      @using (Html.BeginForm("Pesquisar", "Cliente", FormMethod.Get))
-      {
+  <section>
+    <div class="container">
+      <div class="form -body">
 
-          <div class="item">
-            @Html.Label("Nome")
-            @Html.TextBox("Nome")
-          </div>
-          <div class="item">
-            @Html.Label("Email")
-            @Html.TextBox("Email")
-          </div>
-          <div class="item">
-            @Html.Label("Cidade")
-            @Html.TextBox("Cidade")
-          </div>
+        @using (Html.BeginForm("Pesquisar", "Cliente", FormMethod.Get))
+        {
+
+            <div class="item">
+              @Html.Label("Nome")
+              @Html.TextBox("Nome")
+            </div>
+            <div class="item">
+              @Html.Label("Email")
+              @Html.TextBox("Email")
+            </div>
+            <div class="item">
+              @Html.Label("Cidade")
+              @Html.TextBox("Cidade")
+            </div>
             <div class="item">
               @Html.Label("Receber Notificação?")
               @Html.CheckBox("Receber")
@@ -42,70 +44,71 @@
             </div>
             <button class="btn -green" type="submit">Pesquisar</button>
 
-      }
-
-    </div>
-  </div>
-</section>
-<hr />
-<section>
-  <div class="container">
-    <div class="table-content">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <td>ID</td>
-            <td>Nome</td>
-            <td>Email</td>
-            <td>Cidade</td>
-            <td>Receber Noticias</td>
-            <td>CPF</td>
-
-          </tr>
-        </thead>
-        <tbody id="tabela">
-          @foreach (var item in Model)
-          {
-              <tr>
-                <td>@item.ID</td>
-                <td>@item.Nome</td>
-                <td>@item.Email</td>
-                <td>@item.Cidade</td>
-                <td>@item.ReceberNoticiasEmail</td>
-                <td>@item.CPF</td>
-
-                <td>@Html.ActionLink("Editar", "Editar", new { id = @item.ID }, new { @class = "btn -edit" })</td>
-                <td><button onclick="tbxId.value = @item.ID" data-toggle="modal" data-target="#myModal">Deletar</button></td>
-              </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
-      </div>
-      <div class="modal-body">
-        Realmente dezeja deletar o Cliente?
-      </div>
-      <div class="modal-footer">
-        @using (Html.BeginForm("Deletar", "CLiente"))
-        {
-            <input type="hidden" id="tbxId" name="tbxId" />
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                  <button type="submit" class="btn btn-primary">Sim</button>
-
         }
 
       </div>
     </div>
+  </section>
+  <hr />
+  <section>
+    <div class="container">
+      <div class="table-content">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>Nome</td>
+              <td>Email</td>
+              <td>Cidade</td>
+              <td>Receber Noticias</td>
+              <td>CPF</td>
+
+            </tr>
+          </thead>
+          <tbody id="tabela">
+            @foreach (var item in Model)
+            {
+                <tr>
+                  <td>@item.ID</td>
+                  <td>@item.Nome</td>
+                  <td>@item.Email</td>
+                  <td>@item.Cidade</td>
+                  <td>@item.ReceberNoticiasEmail</td>
+                  <td>@item.CPF</td>
+
+                  <td>@Html.ActionLink("Editar", "Editar", new { id = @item.ID }, new { @class = "btn -edit" })</td>
+                  <td><button onclick="tbxId.value = @item.ID" data-toggle="modal" data-target="#myModal">Deletar</button></td>
+                </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          Realmente dezeja deletar o Cliente?
+        </div>
+        <div class="modal-footer">
+          @using (Html.BeginForm("Deletar", "CLiente"))
+          {
+              <input type="hidden" id="tbxId" name="tbxId" />
+              <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                  <button type="submit" class="btn btn-primary">Sim</button>
+
+          }
+
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>

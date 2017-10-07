@@ -18,22 +18,24 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="half-box">
-      @foreach (var item in Model)
-      {
-          <div class="box">
-            <div class="titulo">
-              <h1>@item.Titulo</h1>
-              <span>@item.Data</span>
+<section class="main">
+  <section>
+    <div class="container">
+      <div class="half-box">
+        @foreach (var item in Model)
+        {
+            <div class="box">
+              <div class="titulo">
+                <h1>@item.Titulo</h1>
+                <span>@item.Data</span>
+              </div>
+              <div class="content">
+                <p>@item.Mensagem</p>
+              </div>
+              <div class="footer"><span>Autor: @item.Autor</span></div>
             </div>
-            <div class="content">
-              <p>@item.Mensagem</p>
-            </div>
-            <div class="footer"><span>Autor: @item.Autor</span></div>
-          </div>
-      }
+        }
+      </div>
     </div>
-  </div>
+  </section>
 </section>

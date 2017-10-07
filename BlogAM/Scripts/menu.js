@@ -61,3 +61,33 @@ function handleGesure() {
         closeNav();
     }
 }
+
+function scrollBanner1() {
+    var scrollPos;
+    var headerText = document.querySelector('.header .content');
+
+    scrollPos = window.scrollY;
+
+    if (scrollPos <= 450) {
+        headerText.style.opacity = 1 - (scrollPos / 450);
+        headerText.style.transform = "translateY(" + (-scrollPos / 3) + "px" + ")";
+    }
+}
+
+function scrollBanner2() {
+    var scrollPos;
+    var headerText = document.querySelector('.header .content');
+
+    scrollPos = window.scrollY;
+
+    if (scrollPos <= 660) {
+        headerText.style.opacity = 1 - (scrollPos / 660);
+        headerText.style.transform = "translateY(" + (-scrollPos / 3) + "px" + ")";
+    }
+}
+
+if (window.location.pathname == "/") {
+    window.addEventListener('scroll', scrollBanner1);
+} else {
+    window.addEventListener('scroll', scrollBanner2);
+}

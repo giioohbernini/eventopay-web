@@ -18,67 +18,69 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="form -body">
-      @using (Html.BeginForm())
-      {
-          <div class="item">
-            @Html.Label("Nome")
-            @Html.TextBox("Nome", "", new { placeholder = "Nome do produto aqui" })
-          </div>
-          <div class="item">
-            @Html.Label("Descricao")
-            @Html.TextArea("Descricao", "", new { placeholder = "Descrição do produto aqui" })
-          </div>
-          <div class="item">
-            @Html.Label("Imagem")
-            @Html.TextBox("Imagem", "", new { placeholder = "URL da imagem" })
-          </div>
-          <div class="item">
-            @Html.Label("Valor")
-            @Html.TextBox("Valor", "", new { placeholder = "Valor do produto" })
-          </div>
+<section class="main">
 
-          <button class="btn -green" type="submit">Cadastrar</button>
-      }
+  <section>
+    <div class="container">
+      <div class="form -body">
+        @using (Html.BeginForm())
+        {
+            <div class="item">
+              @Html.Label("Nome")
+              @Html.TextBox("Nome", "", new { placeholder = "Nome do produto aqui" })
+            </div>
+            <div class="item">
+              @Html.Label("Descricao")
+              @Html.TextArea("Descricao", "", new { placeholder = "Descrição do produto aqui" })
+            </div>
+            <div class="item">
+              @Html.Label("Imagem")
+              @Html.TextBox("Imagem", "", new { placeholder = "URL da imagem" })
+            </div>
+            <div class="item">
+              @Html.Label("Valor")
+              @Html.TextBox("Valor", "", new { placeholder = "Valor do produto" })
+            </div>
+
+            <button class="btn -green" type="submit">Cadastrar</button>
+        }
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="container">
-    <div class="table-content">
-      <table class="table">
-        <thead>
-          <tr>
-            <td>ID</td>
-            <td>Nome</td>
-            <td>Descrcao</td>
-            <td>Imagem</td>
-            <td>Valor</td>
-          </tr>
-        </thead>
-        <tbody id="tabela">
-          @foreach (var item in Model)
-          {
-              <tr>
-                <td>@item.Id</td>
-                <td>@item.Nome</td>
-                <td>@item.Descricao</td>
-                <td>@item.Imagem</td>
-                <td>@item.Valor</td>
+  <section>
+    <div class="container">
+      <div class="table-content">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>Nome</td>
+              <td>Descrcao</td>
+              <td>Imagem</td>
+              <td>Valor</td>
+            </tr>
+          </thead>
+          <tbody id="tabela">
+            @foreach (var item in Model)
+            {
+                <tr>
+                  <td>@item.Id</td>
+                  <td>@item.Nome</td>
+                  <td>@item.Descricao</td>
+                  <td>@item.Imagem</td>
+                  <td>@item.Valor</td>
 
-                <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn -edit" })</td>
-                <td><button onclick="tbxId.value = @item.Id" data-toggle="modal" data-target="#myModal">Deletar</button></td>
-              </tr>
-          }
-        </tbody>
-      </table>
+                  <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn -edit" })</td>
+                  <td><button onclick="tbxId.value = @item.Id" data-toggle="modal" data-target="#myModal">Deletar</button></td>
+                </tr>
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
+  </section>
 </section>
-
 
 
 

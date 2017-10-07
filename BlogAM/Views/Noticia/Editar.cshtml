@@ -9,26 +9,28 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="form -body">
-      @using (Html.BeginForm("Editar", "Noticia"))
-      {
-          <div class="item">
-            @Html.Label("Titulo")
-            @Html.TextBox("Titulo")
-          </div>
-          <div class="item">
-            @Html.Label("Mensagem")
-            @Html.TextArea("Mensagem")
-          </div>
-          <div class="item">
-            @Html.Label("Autor")
-            @Html.TextBox("Autor")
-          </div>
-          <button class="btn -green" type="submit">Editar</button>
+<section class="main">
+  <section>
+    <div class="container">
+      <div class="form -body">
+        @using (Html.BeginForm("Editar", "Noticia"))
+        {
+            <div class="item">
+              @Html.Label("Titulo")
+              @Html.TextBox("Titulo")
+            </div>
+            <div class="item">
+              @Html.Label("Mensagem")
+              @Html.TextArea("Mensagem")
+            </div>
+            <div class="item">
+              @Html.Label("Autor")
+              @Html.TextBox("Autor")
+            </div>
+            <button class="btn -green" type="submit">Editar</button>
 
-      }
+        }
+      </div>
     </div>
-  </div>
+  </section>
 </section>
