@@ -19,6 +19,7 @@
       </script>
   }
 
+
 </head>
 <body style="@if (Request.Path == "/") {@Html.Raw("overflow-y: hidden") } ">
   @if (Request.Path == "/") { @Html.Partial("_Loader") }
@@ -58,6 +59,10 @@
   @RenderBody()
 
   @Scripts.Render("~/bundles/scripts")
+  @if (Request.Path != "/")
+  {
+      @Scripts.Render("~/bundles/modal")
+  }
   @RenderSection("scripts", required: false)
 </body>
 </html>

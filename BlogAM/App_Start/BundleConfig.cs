@@ -15,9 +15,14 @@ namespace BlogAM
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
                 "~/Scripts/menu.js"
                 ));
+            bundles.Add(new ScriptBundle("~/bundles/modal").Include(
+                "~/Scripts/jqmodify.js",
+                "~/Scripts/modal.js"
+                ));
 
             bundles.Add(new StyleBundle("~/Content/styles").Include(
-                "~/Content/style.css"
+                "~/Content/style.css",
+                "~/Content/modal.css"
                 ));
         }
     }
