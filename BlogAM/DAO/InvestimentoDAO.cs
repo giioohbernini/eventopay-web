@@ -82,10 +82,10 @@ namespace BlogAM.DAO
             {
                 ctx.Investimento.Find(id).Nome = investimento.Nome;
                 ctx.Investimento.Find(id).Descricao= investimento.Descricao;
-                //ctx.Investimento.Find(id).Valor= investimento.Valor;
-                //ctx.Investimento.Find(id).Beneficio = investimento.Beneficio;
-                //ctx.Investimento.Find(id).QtdCotas = investimento.QtdCotas;
-                //ctx.Investimento.Find(id).CotasRestantes = investimento.CotasRestantes;
+                ctx.Investimento.Find(id).Valor= investimento.Valor;
+                ctx.Investimento.Find(id).Beneficio = investimento.Beneficio;
+                ctx.Investimento.Find(id).QtdCotas = investimento.QtdCotas;
+                ctx.Investimento.Find(id).CotasRestantes = investimento.CotasRestantes;
                 ctx.SaveChanges();
             }
         }
