@@ -64,6 +64,7 @@ namespace BlogAM.DAO
             cli.Cidade = cli.Cidade == null ? "" : cli.Cidade;
             string CPF = cli.CPF.ToString();
             CPF = CPF == null ? "" : CPF;
+            
             using (var ctx = new ClienteContext())
             {
                 if (Receber)

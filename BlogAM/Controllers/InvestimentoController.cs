@@ -77,21 +77,35 @@ namespace BlogAM.Controllers
         }
         #endregion
 
-        #region pesquisar
+        #region TotalInvestido
         [Authorize]
         [HttpGet]
-        public ActionResult TotalInvestido()
+        public ActionResult TotalInvestido(string NomePesquisa = "")
         {
-
-            ClienteViewModel clienteView = new ClienteViewModel()
+            List<Investimento> investimento = new List<Investimento>();
+            if (NomePesquisa == "")
             {
-                Investimentos = DAO.InvestimentoDAO.listar(),
-                Clientes = DAO.ClienteDAO.listar(),
-                TotalInvestido=DAO.ClienteDAO.GetTotalInvestido()
-            };
-            return View(clienteView);
+                ClienteViewModel clienteView = new ClienteViewModel()
+                {
+                    Investimentos = DAO.InvestimentoDAO.listar(),
+                    Clientes = DAO.ClienteDAO.listar(),
+                    TotalInvestido = DAO.ClienteDAO.GetTotalInvestido()
+                };
+                return View(clienteView);
+            }
+            else
+            {
+                ClienteViewModel clienteView = new ClienteViewModel()
+                {
+                    Investimentos = DAO.InvestimentoDAO.listar().FindAll(p=>p.Nome==NomePesquisa),
+                    Clientes = DAO.ClienteDAO.listar(),
+                    TotalInvestido = DAO.ClienteDAO.GetTotalInvestido()
+                };
+                return View(clienteView);
+            }
         }
         #endregion
 
+        
     }
 }

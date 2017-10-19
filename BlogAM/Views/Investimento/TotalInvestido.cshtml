@@ -4,10 +4,20 @@
 }
 
 <section class="header">
-  <div class="content">
-    <h1 class="title">Dashboard</h1>
-  </div>
+    <div class="content">
+        <h1 class="title">Dashboard</h1>
+        <div class="containter">
+            @using (Html.BeginForm("TotalInvestido", "Investimento", FormMethod.Get))
+            {
+                <div class="form -center">
+                    @Html.TextBox("NomePesquisa", "", new { placeholder = "Procure pelo pacote desejado!" })
+                    <button class="btn -green" type="submit">Pesquisar</button>
+                </div>
+            }
+        </div>
+    </div>
 </section>
+
 
 <section class="main">
 

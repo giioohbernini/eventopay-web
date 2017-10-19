@@ -14,7 +14,7 @@ namespace BlogAM.Models
         public string Cidade { get; set; }
         public DateTime DataNascimento { get; set; }
         public DateTime DataCadastro { get; set; }
-        public int CPF { get; set; }
+        public string CPF { get; set; }
         public bool ReceberNoticiasEmail { get; set; }
         public int numeroCartao { get; set; }
         public double Valor { get; set; }
