@@ -78,7 +78,7 @@ namespace BlogAM.DAO
                 ctx.Investimento.Find(id).Valor= investimento.Valor;
                 ctx.Investimento.Find(id).Beneficio = investimento.Beneficio;
                 ctx.Investimento.Find(id).QtdCotas = investimento.QtdCotas;
-                ctx.Investimento.Find(id).CotasRestantes = investimento.CotasRestantes;
+                //ctx.Investimento.Find(id).CotasRestantes = investimento.CotasRestantes;
                 ctx.SaveChanges();
             }
         }

@@ -40,7 +40,7 @@ namespace BlogAM.Controllers
         }
         #endregion
 
-        #region Deletar Noticia
+        #region Deletar Investimento
         [Authorize]
         [HttpPost]
         public ActionResult Deletar(int tbxId)
@@ -50,7 +50,7 @@ namespace BlogAM.Controllers
         }
         #endregion
 
-        #region Editar Noticia
+        #region Editar Investimento
         [Authorize]
         [HttpPost]
         public ActionResult Editar(Investimento investimento)
