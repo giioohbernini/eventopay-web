@@ -69,25 +69,25 @@ namespace BlogAM.DAO
             {
                 if (Receber)
                 {
-                    if (CPF!="")
-                    {
+                    //if (CPF!="")
+                    //{
                         return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade) && t.ReceberNoticiasEmail == cli.ReceberNoticiasEmail && t.CPF.ToString().Contains(CPF))).ToList();
-                    }
-                    else
-                    {
-                        return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade) && t.ReceberNoticiasEmail == cli.ReceberNoticiasEmail )).ToList();
-                    }
+                    //}
+                    //else
+                    //{
+                    //    return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade) && t.ReceberNoticiasEmail == cli.ReceberNoticiasEmail )).ToList();
+                    //}
                 }
                 else
                 {
-                    if (CPF != "")
-                    {
+                    //if (CPF != "")
+                    //{
                         return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade)  && t.CPF.ToString().Contains(CPF))).ToList();
-                    }
-                    else
-                    {
+                    //}
+                    //else
+                    //{
                         return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade) )).ToList();
-                    }
+                    //}
                 }
             }
         }
