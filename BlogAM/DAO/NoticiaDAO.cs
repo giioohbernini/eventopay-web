@@ -24,11 +24,19 @@ namespace BlogAM.DAO
         #region Deletar
         public static void deletar(int id)
         {
-            using (var ctx = new NoticiaContext())
+            try
             {
-                ctx.Noticia.Remove(ctx.Noticia.Find(id));
-                ctx.SaveChanges();
+                using (var ctx = new NoticiaContext())
+                {
+                    ctx.Noticia.Remove(ctx.Noticia.Find(id));
+                    ctx.SaveChanges();
+                }
             }
+            catch (Exception)
+            {
+                
+            }
+           
         }
         #endregion
 

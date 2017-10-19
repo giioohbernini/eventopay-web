@@ -26,11 +26,18 @@ namespace BlogAM.DAO
         #region Deletar
         public static void deletar(int id)
         {
-            using (var ctx = new InvestimentoContext())
+            try
             {
-                ctx.Investimento.Remove(ctx.Investimento.Find(id));
-                ctx.SaveChanges();
+                using (var ctx = new InvestimentoContext())
+                {
+                    ctx.Investimento.Remove(ctx.Investimento.Find(id));
+                    ctx.SaveChanges();
+                }
             }
+            catch (Exception)
+            {
+            }
+           
         }
         #endregion
 
@@ -87,20 +94,38 @@ namespace BlogAM.DAO
         #region Pesquisar por Id
         public static Investimento pesquisar(int id)
         {
-            using (var ctx = new InvestimentoContext())
+            try
             {
-                return ctx.Investimento.Find(id);
+                using (var ctx = new InvestimentoContext())
+                {
+                    return ctx.Investimento.Find(id);
+                }
             }
+            catch (Exception)
+            {
+
+                return null;
+            }
+           
         }
         #endregion
 
         #region Pesquisar por Nome
         public static List<Investimento> pesquisar(string nome)
         {
-            using (var ctx = new InvestimentoContext())
+            try
             {
-                return ctx.Investimento.Where(t => t.Nome.Contains(nome)).ToList();
+                using (var ctx = new InvestimentoContext())
+                {
+                    return ctx.Investimento.Where(t => t.Nome.Contains(nome)).ToList();
+                }
             }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            
         }
         #endregion
 

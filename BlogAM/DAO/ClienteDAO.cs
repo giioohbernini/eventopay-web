@@ -125,17 +125,25 @@ namespace BlogAM.DAO
         #region Deletar
         public static void deletar(int id)
         {
-            using (var ctx = new ClienteContext())
+            try
             {
-                ctx.Cliente.Remove(ctx.Cliente.Find(id));
-                ctx.SaveChanges(); 
+                 using (var ctx = new ClienteContext())
+                {
+                    ctx.Cliente.Remove(ctx.Cliente.Find(id));
+                    ctx.SaveChanges(); 
+                }
             }
+            catch (Exception)
+            {
+            }
+            
         }
         #endregion
 
         #region Pesquisar pelo ID
         public static Cliente pesquisarPorID(int id)
         {
+            
             using (var ctx = new ClienteContext())
             {
                 return ctx.Cliente.Find(id);
