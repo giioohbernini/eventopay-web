@@ -86,7 +86,7 @@ namespace BlogAM.DAO
                     //}
                     //else
                     //{
-                        return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade) )).ToList();
+                    //    return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade) )).ToList();
                     //}
                 }
             }
