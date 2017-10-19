@@ -34,7 +34,7 @@
               @Html.Label("Receber Notificação?")
               @Html.CheckBox("Receber")
             </div>
-            <div class="item" style="display: none" id="yn">
+            <div class="item" id="yn">
               @Html.RadioButton("ReceberNoticiasEmail", true) Sim
               @Html.RadioButton("ReceberNoticiasEmail", false) Não
             </div>
@@ -115,14 +115,16 @@
 
 <script> 
 
-var receber = document.querySelector('#Receber')
-var yn = document.querySelector('#yn')
+  var receber = document.querySelector('#Receber');
+  var yn = document.querySelector('#yn');
 
-var state = false
+  var state = receber.checked;
 
-receber.addEventListener('click', () => {
-  yn.style.display = state ? "none" : "block"
-  state = !state
-})
+  yn.style.display = state ? "block" : "none";
+
+  receber.addEventListener('click', () => {
+    state = !state;
+    yn.style.display = state ? "block" : "none";
+  })
 
 </script>
