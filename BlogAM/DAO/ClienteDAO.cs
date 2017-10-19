@@ -71,7 +71,7 @@ namespace BlogAM.DAO
                 {
                     //if (CPF!="")
                     //{
-                        return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade) && t.ReceberNoticiasEmail == cli.ReceberNoticiasEmail && t.CPF.ToString().Contains(CPF))).ToList();
+                        return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade) && t.ReceberNoticiasEmail == cli.ReceberNoticiasEmail && t.CPF.Contains(CPF))).ToList();
                     //}
                     //else
                     //{
@@ -82,7 +82,7 @@ namespace BlogAM.DAO
                 {
                     //if (CPF != "")
                     //{
-                        return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade)  && t.CPF.ToString().Contains(CPF))).ToList();
+                        return ctx.Cliente.Where((t => t.Nome.Contains(cli.Nome) && t.Email.Contains(cli.Email) && t.Cidade.Contains(cli.Cidade)  && t.CPF.Contains(CPF))).ToList();
                     //}
                     //else
                     //{
